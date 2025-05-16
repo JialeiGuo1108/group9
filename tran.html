@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Transportation Evolution Map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+        .mapboxgl-compare .compare-swiper-vertical {
+            box-shadow: inset 0 0 0 0px #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #20232A;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            border: 6px solid #a46416;
+            box-sizing: border-box;
+        }
+
+        .legend {
+            position: absolute;
+            background-color: rgba(32, 35, 42, 0.85);
+            padding: 10px;
+            border-radius: 0;
+            z-index: 1;
+            border: 1px solid #E8B92F;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 13px;
+            font-family: 'Microsoft YaHei';
+            color: #F0EAD6;
+            width: 160px;
+        }
+
+        #before-legend {
+            top: 15px;
+            left: 15px;
+        }
+
+        #after-legend {
+            top: 15px;
+            right: 15px;
+        }
+
+        .legend strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+            font-family: 'Microsoft YaHei'
+                color: #E8B92F;
+            text-align: center;
+            border-bottom: 1px solid #E8B92F;
+            padding-bottom: 2px;
+        }
+
+        .legend button {
+            margin: 3px;
+            padding: 6px 6px;
+            font-size: 13px;
+            font-family: 'Microsoft YaHei';
+            border: 1px solid #E8B92F;
+            color: #F0EAD6;
+            cursor: pointer;
+            border-radius: 0;
+            background-color: #2D313A;
+            width: 120px;
+            transition: all 0.3s;
+            display: block;
+            /* 添加这行 */
+            margin-left: auto;
+            /* 添加这行 */
+            margin-right: auto;
+            /* 添加这行 */
+        }
+
+        .legend button.active {
+            background-color: #B2452E;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 3px;
+            margin-right: 6px;
+        }
+
+
+
+        .mapboxgl-ctrl-group {
+            border-radius: 0 !important;
+            overflow: hidden;
+            border: 1px solid #fee60a !important;
+        }
+
+        .mapboxgl-ctrl-group button {
+            background-color: #2D313A !important;
+        }
+
+        .mapboxgl-compare {
+            background-color: #E8B92F !important;
+            width: 3px !important;
+        }
+
+        .mapboxgl-compare .compare-swiper-button {
+            background-color: #B2452E !important;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+            color: #F0EAD6 !important;
+        }
+
+        .mapboxgl-compare:before,
+        .mapboxgl-compare:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #B2452E;
+            border-radius: 50%;
+            left: -8px;
+        }
+
+        .mapboxgl-compare:before {
+            top: 30%;
+        }
+
+        .mapboxgl-compare:after {
+            bottom: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+
+    <div id="comparison-container">
+        <div id="before" class="map"></div>
+        <div id="after" class="map"></div>
+    </div>
+
+    <!-- Modern Map legend (left) -->
+    <div id="before-legend" class="legend">
+        <strong>Modern (2020)</strong>
+        <button id="toggle-railways" class="active">Railways</button>
+        <button id="toggle-highways" class="active">Highways</button>
+
+        <div style="margin-top: 10px; border-top: 1px solid #E8B92F; padding-top: 6px;">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4C8DAE;"></div>
+                <span>Railways</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #B2452E;"></div>
+                <span>Highways</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ancient Map legend (right) -->
+    <div id="after-legend" class="legend">
+        <strong>Ancient (1820)</strong>
+        <button id="toggle-canal" class="active">Canals</button>
+        <button id="toggle-courier" class="active">Courier Routes</button>
+
+        <div style="margin-top: 10px; border-top: 1px solid #E8B92F; padding-top: 6px;">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #7193c0;"></div>
+                <span>Canals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #D9A76A;"></div>
+                <span>Courier Routes</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiMjQwNzA4MzIiLCJhIjoiY202ODNlM2gzMDlweDJrczg2Z2Jicjl0ayJ9.U8JztMqggTiv_9UndoY-WA'; // Replace with your token
+
+        // 尝试使用其他基础样式而不是自定义样式
+        const beforeMap = new mapboxgl.Map({
+            container: 'before',
+            style: 'mapbox://styles/24070832/cmamhcdmp01fg01skhm4tb1bv', // 或 'streets-v11', 'outdoors-v11', 'satellite-v9'
+            center: [112, 36],
+            zoom: 4,
+            attributionControl: true,
+            navigationControl: false,
+            projection: 'mercator' // 明确指定投影类型
+        });
+
+        const afterMap = new mapboxgl.Map({
+            container: 'after',
+            style: 'mapbox://styles/24070832/cmamhcdmp01fg01skhm4tb1bv',
+            center: [112, 36],
+            zoom: 4,
+            attributionControl: true,
+            navigationControl: false,
+            projection: 'mercator'
+        });
+
+        // Modern Transport (LEFT SIDE)
+        beforeMap.on('load', () => {
+            // Load railways data with error handling
+            fetch('yyddata/railways.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn('Failed to load railways data, status code:', response.status);
+                        return { type: 'FeatureCollection', features: [] };
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Add railways data
+                    beforeMap.addSource('railways', {
+                        type: 'geojson',
+                        data: data
+                    });
+                    beforeMap.addLayer({
+                        id: 'railways-layer',
+                        type: 'line',
+                        source: 'railways',
+                        layout: {
+                            'visibility': 'visible'
+                        },
+                        paint: {
+                            'line-color': '#4C8DAE', // Blue color for railways
+                            'line-width': 2
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading railways data:', error);
+                });
+
+            // Load highways data with error handling
+            fetch('yyddata/highways.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn('Failed to load highways data, status code:', response.status);
+                        return { type: 'FeatureCollection', features: [] };
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Add highways data
+                    beforeMap.addSource('highways', {
+                        type: 'geojson',
+                        data: data
+                    });
+                    beforeMap.addLayer({
+                        id: 'highways-layer',
+                        type: 'line',
+                        source: 'highways',
+                        layout: {
+                            'visibility': 'visible'
+                        },
+                        paint: {
+                            'line-color': '#B2452E', // Red color for highways
+                            'line-width': 2
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading highways data:', error);
+                });
+
+            // Toggle buttons
+            document.getElementById('toggle-railways').addEventListener('click', function () {
+                if (beforeMap.getLayer('railways-layer')) {
+                    toggleLayer(beforeMap, 'railways-layer', this);
+                } else {
+                    console.warn('Railways layer does not exist');
+                }
+            });
+
+            document.getElementById('toggle-highways').addEventListener('click', function () {
+                if (beforeMap.getLayer('highways-layer')) {
+                    toggleLayer(beforeMap, 'highways-layer', this);
+                } else {
+                    console.warn('Highways layer does not exist');
+                }
+            });
+        });
+
+        // Ancient Transport (RIGHT SIDE)
+        afterMap.on('load', () => {
+            // Load canal data with error handling
+            fetch('yyddata/china_canal.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn('Failed to load canal data, status code:', response.status);
+                        return { type: 'FeatureCollection', features: [] };
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Add canal data
+                    afterMap.addSource('china-canal', {
+                        type: 'geojson',
+                        data: data
+                    });
+                    afterMap.addLayer({
+                        id: 'china-canal-layer',
+                        type: 'line',
+                        source: 'china-canal',
+                        layout: {
+                            'visibility': 'visible'
+                        },
+                        paint: {
+                            'line-color': '#88ABDA', // Sky blue color for canals
+                            'line-width': 3,
+                            'line-opacity': 0.8
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading canal data:', error);
+                });
+
+            // Load courier route data with error handling
+            fetch('yyddata/courier_route.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn('Failed to load courier route data, status code:', response.status);
+                        return { type: 'FeatureCollection', features: [] };
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Add courier route data
+                    afterMap.addSource('courier-route', {
+                        type: 'geojson',
+                        data: data
+                    });
+                    afterMap.addLayer({
+                        id: 'courier-route-layer',
+                        type: 'line',
+                        source: 'courier-route',
+                        layout: {
+                            'visibility': 'visible'
+                        },
+                        paint: {
+                            'line-color': '#D9A76A', // Wooden yellow for courier routes
+                            'line-width': 3
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading courier route data:', error);
+                });
+
+            // Toggle buttons
+            document.getElementById('toggle-canal').addEventListener('click', function () {
+                if (afterMap.getLayer('china-canal-layer')) {
+                    toggleLayer(afterMap, 'china-canal-layer', this);
+                } else {
+                    console.warn('Canal layer does not exist');
+                }
+            });
+
+            document.getElementById('toggle-courier').addEventListener('click', function () {
+                if (afterMap.getLayer('courier-route-layer')) {
+                    toggleLayer(afterMap, 'courier-route-layer', this);
+                } else {
+                    console.warn('Courier route layer does not exist');
+                }
+            });
+        });
+
+        // Toggle visibility function
+        function toggleLayer(map, layerId, button) {
+            const visibility = map.getLayoutProperty(layerId, 'visibility');
+            if (visibility === 'none') {
+                map.setLayoutProperty(layerId, 'visibility', 'visible');
+                button.classList.add('active');
+            } else {
+                map.setLayoutProperty(layerId, 'visibility', 'none');
+                button.classList.remove('active');
+            }
+        }
+
+        const compare = new mapboxgl.Compare(beforeMap, afterMap, '#comparison-container');
+    </script>
+</body>
+
+</html>

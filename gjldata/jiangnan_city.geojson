@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "name": "zaju_city",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Hangzhou", 
+        "Latitude": 30.22, 
+        "Longitude": 120.17, 
+        "description": "Hangzhou served as the spiritual reservoir of Jiangnan poetry. Zhou Mi’s Reminiscences of Wulin captured the nostalgic mood of the Southern Song, shaping the poetic tradition of “history within verse.” Later poets like Gong Zizhen drew inspiration from West Lake’s scenery, experimenting with the “Xingling” (emotive authenticity) theory and leaving behind many celebrated lines.",
+        "iconImage": "gjlimages/city_icons/literature_hangzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.17, 30.22 ]
+      } 
+    }, { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Suzhou", 
+        "Latitude": 31.35, 
+        "Longitude": 120.53, 
+        "description": "Suzhou was the technical engine behind the rise of Jiangnan poetry schools. Renowned private presses like Sao Ye Shanfang and Ji Gu Ge published vast numbers of poetry collections, which were distributed nationwide via the Grand Canal. By the 18th century, 60% of all poetry books in China were printed in Suzhou (Chinese Printing History).",
+        "iconImage": "gjlimages/city_icons/literature_suzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.53, 31.35]
+      } 
+    },
+{ 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Yangzhou", 
+        "Latitude": 32.37, 
+        "Longitude": 119.42, 
+        "description": "Wealthy salt merchants like Ma Yueguan and Jiang Chun sponsored poets and gatherings, fueling a vibrant literary scene. Yuan Mei praised it as “the finest literary circle in the empire.” Zheng Banqiao’s Yangzhou Bamboo Branch Songs portrayed everyday urban life, breaking away from the traditional pastoral style and grounding poetry in the streets.",
+        "iconImage": "gjlimages/city_icons/literature_yangzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 119.42, 32.37 ] 
+      } 
+    }
+  ]
+}

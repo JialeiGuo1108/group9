@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "name": "zaju_city",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Hangzhou", 
+        "Latitude": 30.22, 
+        "Longitude": 120.17, 
+        "description": "After the fall of Bianjing, Northern Song migrants brought Mandarin speech to Hangzhou. There, it blended with Wu dialects, forming a unique “Hangzhou Mandarin layer” that preserves traces of northern influence.",
+        "iconImage": "gjlimages/city_icons/dialect_hangzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.17, 30.22]
+      } 
+    },    
+{ 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Jiaxing", 
+        "Latitude": 30.76, 
+        "Longitude": 120.76, 
+        "description": "During the Ming and Qing dynasties, canal officials stationed in Jiaxing formed Mandarin-speaking communities, surrounded by the local Wu dialect, creating a unique linguistic enclave.",
+         "iconImage": "gjlimages/city_icons/dialect_jiaxing.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [120.76, 30.76]
+      } 
+    },
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Suzhou", 
+        "Latitude": 31.36, 
+        "Longitude": 120.53, 
+        "description": "Through the Grand Canal, Suzhou adopted a Mandarin-based reading system for formal texts, while preserving local Wu dialect in daily speech—making it one of China’s most prominent examples of a dual-track language system.",
+        "iconImage": "gjlimages/city_icons/dialect_suzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.53, 31.36 ]
+      } 
+    }
+  ]
+}
+

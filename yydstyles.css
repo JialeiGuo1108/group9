@@ -1,0 +1,604 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #3c2a1e;
+    background-color: #f8f4e1;
+    overflow: hidden;
+    /* Prevent body scroll */
+}
+
+#map-container {
+    flex: 1;
+    /* Take remaining vertical space */
+    position: relative;
+    display: flex;
+    min-height: 0;
+    /* Allow flex item to shrink */
+}
+
+#map {
+    height: 100%;
+    width: 70%;
+    border-right: 1px solid #c8b798;
+    position: relative;
+    /* Needed for SVG overlay */
+    overflow: hidden;
+    /* Hide potential map overflows */
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('gjlimages/paper-texture2.jpg');
+    background-size: cover;
+    opacity: 0.2;
+    pointer-events: none; /* 使覆盖层不拦截鼠标事件 */
+    z-index: 1;
+}
+
+#controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(248, 244, 225, 0.95);
+    padding: 12px;
+    box-shadow: 0 1px 6px rgba(60, 42, 30, 0.15);
+    width: 210px;
+    border: 1px solid #c8b798;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Spacing between control groups */
+}
+
+.control-group {
+    margin-bottom: 0;
+}
+
+/* 图例文字修改 */
+.control-label {
+    display: block;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #8b4513;
+}
+
+select {
+    padding: 6px 9px;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    background: #f1e9d2;
+    border: 1px solid #c8b798;
+    cursor: pointer;
+    width: 100%;
+    color: #3c2a1e;
+    box-shadow: inset 0 1px 2px rgba(60, 42, 30, 0.1);
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%238b4513" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 25px;
+    box-sizing: border-box;
+}
+
+select:hover {
+    border-color: #9c7c48;
+}
+
+select:focus {
+    outline: none;
+    border-color: #a02c2c;
+}
+
+#bubble-legend-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+    margin-top: 2px;
+}
+
+
+/* 图例里的文字 */
+.bubble-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+
+}
+
+.bubble-legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    border: 1px solid rgba(60, 42, 30, 0.4);
+    border-radius: 3px;
+}
+
+.legend-group.map-legend-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 6px;
+    /* border-top: 1px solid #e7ddc3; */
+    margin-top: 4px;
+}
+
+
+/* 另一个图例 */
+.legend-group .legend-title {
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #8b4513;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    text-align: left;
+}
+
+.legend-group .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+    justify-content: flex-start;
+}
+
+/* 另一个图例 */
+.legend-group .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+
+}
+
+.legend-group .legend-icon {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.legend-line-volume-high {
+    width: 28px;
+    height: 6px;
+    background-color: #666;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.legend-line-volume-low {
+    width: 28px;
+    height: 2px;
+    background-color: #666;
+    margin-right: 5px;
+    border-radius: 1px;
+}
+
+
+/* --- Right Info Box --- */
+#info-box {
+    width: 30%;
+    height: 100%;
+    /* Ensure parent has height */
+    background-color: rgba(248, 244, 225, 0.92);
+    background-image: url('yydimages/background.png');
+    /* Make sure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    padding: 0;
+    /* Remove padding for edge-to-edge content */
+    color: #3c2a1e;
+    overflow: hidden;
+    /* Hide overflow */
+    position: relative;
+    display: flex;
+    /* Use flexbox for vertical distribution */
+    flex-direction: column;
+    /* Stack children vertically */
+    border-left: 1px solid #c8b798;
+}
+
+.info-box-title-area {
+    flex-basis: 15%;
+    /* Takes 10% of the height */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    display: flex;
+    align-items: flex-end;
+    /* Vertically center title */
+    justify-content: center;
+    /* Horizontally center title */
+    padding: 0 10px;
+    /* Horizontal padding only */
+    box-sizing: border-box;
+    border-bottom: 1px solid #e7ddc3;
+    /* Add separator */
+}
+
+
+/* 大标题 */
+.info-box-title-area h3 {
+    margin: 11px;
+    font-size: 30px;
+    font-family: 'Ma Shan Zheng', cursive;
+    color: #a02c2c;
+    text-align: center;
+    font-weight: bold;
+
+
+    
+    font-size: 34px;
+    font-weight: normal;
+    /* Ma Shan Zheng 字体不需要加粗 */
+    font-family: 'Ma Shan Zheng', cursive;
+    text-shadow: 2px 2px 8px rgba(35, 35, 35, 0.7);
+    /* 添加与首页相同的文字阴影 */
+    letter-spacing: 0.05em;
+    /* 可选：稍微增加字间距 */
+}
+
+.info-section {
+    flex-shrink: 0;
+    border-bottom: 1px solid #e7ddc3;
+    padding: 5px 8px;
+    margin-bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* This now applies to .section-content as its direct child for layout */
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+
+
+
+
+#guild-distribution-section {
+    flex-basis: 25%;
+}
+
+#huishang-overview-section {
+    flex-basis: 25%;
+}
+
+#goods-proportion-section {
+    flex-basis: 25%;
+}
+
+
+/* 数据来源字体 */
+#data-source-section {
+    flex-basis: auto;
+    flex-shrink: 0;
+    padding: 4px 8px;
+    font-size: 9px;
+    font-style: italic;
+    color: #777;
+    background-color: rgba(248, 244, 225, 0.2);
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none;
+    margin-top: 6px;
+}
+
+.section-title {
+    color: #a02c2c;
+    text-align: center;
+    padding: 0;
+    font-size: 13px;
+    margin: 0 0 3px 0;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.section-content {
+    display: flex;
+    gap: 4px;
+    overflow: hidden;
+    flex-grow: 1;
+    min-height: 0;
+    padding: 0;
+    /* Remove padding-top if any was added for absolute title */
+    align-items: stretch;
+    /* Or flex-start */
+}
+
+
+/* Layouts within specific sections */
+.guild-section .chart-container-guild {
+    flex-basis: 50%;
+    order: 1;
+}
+
+.guild-section .text-container {
+    flex-basis: 45%;
+    order: 2;
+    padding-left: 4px;
+}
+
+/* Huishang Overview Section Modified */
+.overview-section {
+    align-items: center;
+}
+
+.overview-section .text-container {
+    flex-basis: 48%;
+    /* 从40%增加到48%，让文本占用更多空间 */
+    order: 1;
+    padding-left: 8px;
+    /* 从14px减小到8px，减少左侧内边距 */
+    padding-right: 2px;
+    /* 保持较小的右侧内边距 */
+    height: 100%;
+}
+
+.overview-section img {
+    flex-basis: 48%;
+    /* 从60%减小到48%，让图片比例更合理 */
+    order: 2;
+    max-width: 48%;
+    /* 与flex-basis保持一致 */
+    height: auto;
+    max-height: 95%;
+    object-fit: contain;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 0px;
+    /* 从4px减小到2px，减少图片左侧的外边距 */
+}
+
+.goods-prop-section .chart-container-bubble {
+    flex-basis: 50%;
+    order: 1;
+}
+
+.goods-prop-section .text-container {
+    flex-basis: 45%;
+    order: 2;
+    padding-left: 4px;
+}
+
+.chart-container {
+    padding: 1px;
+    background-color: rgba(248, 244, 225, 0.3);
+    border: 1px solid #d8c7a8;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+
+/* 小标题 */
+.text-container .section-title {
+    /* Target title specifically within text-container */
+    color: #a02c2c;
+    text-align: center;
+    /* Or left, if you prefer for titles above text blocks */
+    padding: 0;
+    font-size: 13px;
+    margin: 0 0 5px 0;
+    /* Add some margin below the title, before the paragraphs */
+    font-weight: bold;
+    /* Remove width and margin-left if they were from previous attempts */
+    width: auto;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+/* 正文 */
+/* Styling for the text container itself */
+.text-container {
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+    line-height: 1.5;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Stack title and paragraphs vertically */
+    justify-content: center;
+    /* Vertically center title+paragraphs block if desired, or flex-start */
+    height: 100%;
+}
+
+.text-container p {
+    margin: 0 0 1px 0;
+    /* Minimal margin between paragraphs */
+}
+
+.source-section p {
+    margin: 0;
+}
+
+
+/* 城市 */
+/* --- Map Elements --- */
+.city-label {
+    position: absolute;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei';
+    font-weight: bold;
+    color: #3c2a1e;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 15;
+}
+
+.bubble-marker {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: filter 0.2s, transform 0.2s;
+    border-radius: 50%;
+}
+
+.bubble-marker:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.city-type-1 {
+    animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 2px rgba(160, 44, 44, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 7px rgba(160, 44, 44, 0.7));
+    }
+}
+
+/* Flow Lines and Particles (SVG elements styled here) */
+.flow-path {
+    fill: none;
+    opacity: 0.7;
+    transition: opacity 0.2s, filter 0.2s, stroke-width 0.2s;
+    cursor: default;
+}
+
+.flow-path:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 2px rgba(140, 90, 60, 0.6));
+    stroke-width: inherit;
+}
+
+.particle {
+    fill: #fff;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+
+/* 浮框 */
+/* --- Tooltips --- */
+.city-tooltip {
+    position: absolute;
+    padding: 8px;
+    background: rgba(248, 244, 225, 0.95);
+    border: 1px solid #c8b798;
+    box-shadow: 0 1px 5px rgba(60, 42, 30, 0.2);
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10000;
+    max-width: 180px;
+    border-radius: 5px;
+    white-space: normal;
+}
+
+.city-tooltip h4 {
+    margin: 0 0 2px 0;
+    color: #a02c2c;
+    font-size: 16px;
+}
+
+.city-tooltip p {
+    margin: 1px 0;
+}
+
+.flow-tooltip {
+    position: absolute;
+    padding: 5px;
+    background: rgba(60, 42, 30, 0.9);
+    color: #f8f4e1;
+    font-size: 9px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10000;
+    max-width: 150px;
+    border: 1px solid #c8b798;
+    border-radius: 2px;
+    white-space: normal;
+}
+
+/* --- Bubble Chart Specific (within Info Box) --- */
+.bubble-chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 7px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    cursor: default;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.bubble-label {
+    position: absolute;
+    text-align: center;
+    font-size: 8px;
+    font-weight: bold;
+    color: #3c2a1e;
+    pointer-events: none;
+    white-space: nowrap;
+    
+}
+
+/* SVG specific styling */
+#map-container svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#map-container svg g {
+    pointer-events: auto;
+}
+
+#map-container svg path {
+    pointer-events: stroke;
+}

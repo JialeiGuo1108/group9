@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "huiban_city",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "City": "Yangzhou", "Latitude": 32.3932, "Longitude": 119.4129, "description": "Yangzhou was an important stop for Huiban troupes on their way to Beijing, helping the rise of Peking Opera. It is also the hometown of Yangju Opera, known for its lively singing and local style. Kunqu Opera was once popular here too, adding to the city’s rich opera culture.", "degree": "30%" , "iconImage": "gjlimages/city_icons/opera_yangzhou.png"}, "geometry": { "type": "Point", "coordinates": [ 119.4129, 32.3932 ] } },
+{ "type": "Feature", "properties": { "City": "Huaian", "Latitude": 33.6104, "Longitude": 119.0159, "description": "As a key hub along the Grand Canal, Qingjiangpu in Huai'an hosted frequent performances by grass-stage troupes at canal ports. Northern Bangzi troupes, brought south by grain transport officials, merged with the local Huaihai Opera, giving rise to Huaihong Opera, known for its use of Mandarin-style spoken lines (Plain language).", "degree": "70%" ,"iconImage": "gjlimages/city_icons/opera_huaian.png"}, "geometry": { "type": "Point", "coordinates": [ 119.0159, 33.6104 ] } },
+{ "type": "Feature", "properties": { "City": "Beijing", "Latitude": 39.9042, "Longitude": 116.4074, "description": "Beijing was the final destination for Huiban troupes, marking a key moment in opera history when the Sanqing Troupe arrived in 1790. Over time, these Anhui troupes blended with local and regional styles, eventually forming Peking Opera, known for its distinctive 'Huguang Yun'.", "degree": "100%","iconImage": "gjlimages/city_icons/opera_beijing.png"}, "geometry": { "type": "Point", "coordinates": [ 116.4074, 39.9042 ] } }
+]
+}

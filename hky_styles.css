@@ -1,0 +1,321 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 更新的头部样式 */
+.header {
+    background-color: #CA9542;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.data-source {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.data-source a {
+    color: #8fd8f8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.data-source a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#map-container {
+    flex: 1;
+    position: relative;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.map-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-controls button {
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.map-controls button:hover {
+    background-color: #f1f1f1;
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.bowl-marker {
+    width: 50px;  /* 调整为合适的大小 */
+    height: 50px;
+    cursor: pointer;
+}
+
+.bowl-marker img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.circle-marker {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.marker-label {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 添加到您的CSS文件 */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/hky_paper-texture.jpg');
+    background-size: cover;
+    opacity: 0.2;
+    pointer-events: none; /* 使覆盖层不拦截鼠标事件 */
+    z-index: 1;
+}
+
+#map::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 50px rgba(139, 98, 58, 0.4);
+    pointer-events: none;
+}
+
+/* 信息弹出框样式 */
+.info-box {
+    width: 80%;
+    left:10px;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border: 1px solid #e1cf99;
+}
+
+.info-box.visible {
+    opacity: 1;
+}
+
+.info-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f2e4;
+    border-bottom: 1px solid #e1cf99;
+}
+
+.info-box-header h3 {
+    margin: 0;
+    color: #bd7446;
+    font-size: 18px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #777;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.info-box-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.info-text {
+    flex: 2;
+}
+
+.info-text p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.info-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-image img {
+    max-width: 100%;
+    border: 1px solid #e1cf99;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 8px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .info-box-content {
+        flex-direction: column;
+    }
+    
+    .info-image {
+        margin-top: 15px;
+    }
+}
+
+/* 添加到您的styles.css文件末尾 */
+
+/* 内容容器样式 */
+.content-container {
+    display: flex;
+    flex: 1;
+    height: 100vh; 
+    overflow: hidden;
+}
+
+/* 技术浏览器容器样式 */
+.tech-explorer-container {
+    width: 35%; /* 调整宽度占比 */
+    min-width: 350px;
+    max-width: 475px;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px solid #ccc;
+    /* 确保z-index高于地图层 */
+    z-index: 10;
+    position: relative;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+/* 地图容器样式调整 */
+#map-container {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+/* 移动设备的响应式调整 */
+@media (max-width: 992px) {
+    .content-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .tech-explorer-container {
+        width: 100%;
+        height: 500px; /* 固定高度 */
+        min-width: initial;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    #map-container {
+        height: calc(100vh - 560px); /* 减去header高度和explorer高度 */
+    }
+}
+
+/* 为技术浏览器中的滚动条添加样式 */
+.tech-explorer-container ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tech-explorer-container ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.tech-explorer-container ::-webkit-scrollbar-thumb {
+    background: #d3b78b;
+    border-radius: 4px;
+}
+
+.tech-explorer-container ::-webkit-scrollbar-thumb:hover {
+    background: #8c6c4a;
+}
+
+/* 确保body样式调整，使整个页面可以充满视口 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 防止整个页面出现滚动条 */
+}
+
+/* 调整header样式确保不会出现意外的空间 */
+.header {
+    flex-shrink: 0; /* 防止header被压缩 */
+}

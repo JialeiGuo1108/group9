@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "name": "zaju_city",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Jining", 
+        "Latitude": 35.4, 
+        "Longitude": 116.54, 
+        "description": "Canal pancakes began as Shandong grain flatbreads, but were adapted along the route—stuffed with Huai’an tea crisps and brushed with Suzhou rose jam. Made extra large (up to 1 meter wide), they were ideal travel rations for boatmen.",
+        "iconImage": "gjlimages/city_icons/diet_jining2.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 116.54, 35.4] 
+      } 
+    },
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Yangzhou", 
+        "Latitude": 32.37, 
+        "Longitude": 119.42, 
+        "description": "At salt merchant banquets, jade shumai blended northern wheat skins with a southern filling of pond greens and Zhenjiang vinegar. Topped with Hongze Lake shrimp roe, its translucent wrapper gleamed like jade—a symbol of edible luxury.",
+        "iconImage": "gjlimages/city_icons/diet_yangzhou3.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 119.42, 32.37 ] 
+      } 
+    }
+  ]
+}

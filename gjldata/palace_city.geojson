@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "mandarin_city",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "City": "Beijing", "Latitude": 39.9, "Longitude": 116.41, "description": "Peking duck used southern sweet bean sauce, brought north via the Grand Canal, while hotpot blended Mongol and Han traditions. Street foods like douzhi and sugar flatbreads relied on canal-supplied mung beans and sugar. Qianlong’s southern tours brought Huaiyang chefs to court, helping shape the Manchu-Han Feast.", "Record": null,"iconImage": "gjlimages/city_icons/diet_beijing.png" }, "geometry": { "type": "Point", "coordinates": [ 116.41, 39.9 ] } },
+{ "type": "Feature", "properties": { "City": "Linqing", "Latitude": 36.68, "Longitude": 115.7, "description": "Known as a grain and carb hub, Linqing offered quick, portable bites like paper-thin shumai for canal workers. Pickled vegetables, cured with southern soy sauce, were daily staples. As noted in The Plum in the Golden Vase, its docks had “food piled like hills.”", "Record": null,"iconImage": "gjlimages/city_icons/diet_linqing.png" }, "geometry": { "type": "Point", "coordinates": [ 115.7, 36.68 ] } },
+{ 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Suzhou", 
+        "Latitude": 31.35, 
+        "Longitude": 120.53, 
+        "description": "As a southern center of imperial-style cuisine, Suzhou favors delicate, sweet flavors. Dishes like Squirrel Mandarin Fish and Braised Softshell Turtle highlight both aesthetic form and nourishing tradition.",
+        "iconImage": "gjlimages/city_icons/diet_suzhou3.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.53, 31.35]
+      } 
+    },
+{ "type": "Feature", "properties": { "City": "Yangzhou", "Latitude": 32.37, "Longitude": 119.42, "description": "In Qing times, wealthy salt merchants hired imperial chefs, creating the elegant style of Huaiyang cuisine. Dishes like Wensi Tofu and Crab Roe Lion’s Head showcase knife precision and palace-level refinement.", "Record": null,"iconImage": "gjlimages/city_icons/diet_yangzhou4.png" }, "geometry": { "type": "Point", "coordinates": [ 119.42, 32.37 ] } }
+]
+}

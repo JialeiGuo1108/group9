@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "mandarin_city",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "City": "Zhenjiang", "Latitude": 32.2, "Longitude": 119.45, "description": "Salt merchant-funded troupes (e.g., Chuntai Troupe) fused Anqing Mandarin with Suzhou Kunqu, giving rise to Ruantan, an early form of Peking Opera.", "Record": null,"iconImage": "gjlimages/city_icons/dialect_zhenjiang.png"}, "geometry": { "type": "Point", "coordinates": [ 119.45, 32.20 ] } },
+{ "type": "Feature", "properties": { "City": "Suqian", "Latitude": 33.96, "Longitude": 118.28, "description": "While Kunqu was originally sung in Wu dialect, by the Qing dynasty, to appeal to northern audiences, jing (painted-face) and chou (comic) roles began using Mandarin, as noted in Lüyuan Conghua.", "Record": null,"iconImage": "gjlimages/city_icons/dialect_suqian.png" }, "geometry": { "type": "Point", "coordinates": [ 118.28, 33.96 ] } },
+{ "type": "Feature", "properties": { "City": "Huaian", "Latitude": 33.5, "Longitude": 119.15, "description": "While Kunqu was originally sung in Wu dialect, by the Qing dynasty, to appeal to northern audiences, jing (painted-face) and chou (comic) roles began using Mandarin, as noted in Lüyuan Conghua.", "Record": null,"iconImage": "gjlimages/city_icons/dialect_huaian.png" }, "geometry": { "type": "Point", "coordinates": [119.15, 33.50] } },
+{ "type": "Feature", "properties": { "City": "Xuzhou", "Latitude": 34.33, "Longitude": 117.34, "description": "Boatmen and guards from the north brought retroflex sounds and words like “ǎn” to Xuzhou. Meanwhile, southern workers introduced Wu dialect terms, making Xuzhou a blend of northern and southern speech along the canal.", "Record": null,"iconImage": "gjlimages/city_icons/dialect_xuzhou.png" }, "geometry": { "type": "Point", "coordinates": [ 117.34, 34.33 ] } }
+]
+}

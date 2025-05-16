@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "name": "zaju_city",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Beijing", 
+        "Latitude": 39.9, 
+        "Longitude": 116.41, 
+        "description": "Tongcheng scholars traveled north via the Grand Canal to take the imperial exams in Beijing—Fang Bao, for example, later served in the Southern Study (Nanshufang). After the Qianlong reign, Tongcheng prose became the official model for civil service essays and was later transmitted back south along the canal through state-sponsored education.",
+        "iconImage": "gjlimages/city_icons/literature_beijing.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 116.41, 39.9 ]
+      } 
+    },
+{ 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Yangzhou", 
+        "Latitude": 32.37, 
+        "Longitude": 119.42, 
+        "description": "In Yangzhou, the wealthy Ma brothers, prominent salt merchants, funded the printing of Tongcheng School works, which were then transported north via grain ships on the Grand Canal. Institutions like the Plum Blossom Academy (Meihua Shuyuan) and Anding Academy became major centers for Tongcheng-style teaching, attracting students from across the canal network.",
+        "iconImage": "gjlimages/city_icons/literature_yangzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 119.42, 32.37 ] 
+      } 
+    }
+  ]
+}

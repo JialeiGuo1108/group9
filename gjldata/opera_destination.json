@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "event": "洛阳杂剧传播",
+        "description": "北宋西京洛阳的杂剧艺术发源地之一，向汴梁等地传播的起点",
+        "dynasty": "北宋",
+        "cultural_type": "戏曲",
+        "significance": "北宋杂剧的重要发展中心，中原戏曲文化源头之一"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [112.4500, 34.6200]
+      }
+    }
+  ]
+}

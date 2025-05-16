@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "开封",
+        "属性": "起始点"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.872199734839512,
+          34.687933114860165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "洛阳",
+        "属性": "终点"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.538802849738957,
+          34.723070336343241
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grand Canal Technology Dissemination - Interactive map showing technology exchange along China's Grand Canal">
+    <title>Grand Canal Technology Dissemination</title>
+    <!-- Maptiler GL JS CSS -->
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.css" rel="stylesheet">
+    <!-- Import external CSS file -->
+    <link href="hky_styles.css" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- 新添加的内容容器，包含技术浏览器和地图 -->
+    <div class="content-container">
+        <!-- 技术浏览器容器 -->
+        <div id="tech-explorer" class="tech-explorer-container"></div>
+        
+        <!-- 原有的地图容器 -->
+        <div id="map-container">
+            <div id="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+            <div id="map"></div>
+            <div class="map-overlay"></div>
+        </div>
+    </div>
+    
+    <!-- 添加 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+ 
+    <!-- Maptiler GL JS -->
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.umd.min.js"></script>
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Turf.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <!-- 新添加的技术浏览器JS -->
+    <script src="hky_tech-explorer.js"></script>
+    <link href="hky_tech-explorer.css" rel="stylesheet">
+    <!-- Custom JavaScript -->
+    <script src="hky_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Beijing",     
+        "title": "Center of Court Literature and Book Exchange",
+        "description": "As the imperial capital, Beijing was a hub for court literature and civil service examination texts. Works like Ji Xiaolan’s Notes from the Thatched Studio (Yuewei Caotang Biji) blended northern tales of the supernatural with urban folklore from canal towns. The Grand Canal also transported vast collections of books from Jiangnan, enriching Beijing’s literary culture."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.41, 39.90]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Hangzhou",
+        "title": "Literary Memory and the Elegance of West Lake Poetry",
+        "description": "As a cultural center of the Southern Song Dynasty, Hangzhou saw a flourishing of migrant literature, with poetry reaching new heights. In works like Zhou Mi’s Reminiscences of Wulin, writers nostalgically recalled life in Bianjing, shaping later Ming and Qing-era themes of remembrance."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 120.17, 30.22 ]
+        }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Suzhou",
+        "title": "Storytelling and Private Publishing Hub",
+        "description": "At canal ports in Suzhou, local performers adapted popular novels into Tanci ballad storytelling, such as The Jade Dragonfly (Yu Qingting). Suzhou was also a center for private publishing, where major literary works like the Cheng-Gao edition of Dream of the Red Chamber were printed, contributing to the spread and preservation of classical Chinese literature."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.59, 31.30]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Yangzhou",
+        "title": "Fusion of Elite and Folk Literature",
+        "description": "Yangzhou became a literary and theatrical hub where Hua (popular) and Ya (elegant) opera traditions coexisted and inspired written works. Supported by wealthy salt merchants, the city’s vibrant performance scene—featuring styles like Ruantan—fueled a fusion of refined and popular literary expression."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 119.42, 32.37 ]
+      }
+    },    
+      {
+      "type": "Feature",
+      "properties": {
+        "City": "Linqing",
+        "title": "Marketplace Fiction and Vernacular Language",
+        "description": "Linqing is widely seen as the model for Qinghe County in The Plum in the Golden Vase (Jin Ping Mei), which depicts the lavish lives of canal merchants. The novel draws heavily from marketplace culture and uses rich, everyday vernacular language rooted in canal towns."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 115.70, 36.68 ]
+      }
+    },      
+      {
+      "type": "Feature",
+      "properties": {
+        "City": "Nanjing",
+        "title": "Literary Criticism and Examination Culture",
+        "description": "As a center of literary learning in Jiangnan, Nanjing was home to the Tongcheng School, where scholars like Yao Nai taught classical prose at Zhongshan Academy. The Jiangnan Examination Hall produced model eight-legged essays that, through the Grand Canal, influenced civil service writing across China."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 118.78, 32.06 ]
+      }
+    },
+      {
+      "type": "Feature",
+      "properties": {
+        "City": "Tianjin",
+        "title": "Quyi Folk Arts and Canal Humor",
+        "description": "Tianjin’s crosstalk (xiangsheng) originated from “street performances” at canal docks, blending northern jokes with southern storytelling. Kuaiban storytelling mimicked the rhythm of canal workers’ chants, often telling canal legends. Folk storybooks like Heroes of the Grain Transport (Caoyun Yingxiong Zhuan) featured fictional heroes from the grain-shipping world."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 117.20, 39.13 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Huaian",
+        "title": "Oral Tales and Canal Legends",
+        "description": "Huai’an’s canal workers passed down vivid oral stories, later recorded in works like Chronicle of Canal Boats (Caoshipu). These tales inspired classics such as Pu Songling’s Strange Tales and may have shaped water monster legends in Journey to the West."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.15, 33.50]
+      }
+    }
+  ]
+}

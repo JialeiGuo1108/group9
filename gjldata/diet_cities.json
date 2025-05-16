@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Beijing",
+        "title": "Wheat-Based Capital Cuisine",
+        "description": "Beijing’s diet centers on wheat-based staples like mantou, noodles, and flatbreads. Though rice, tea, and sugar arrived from the south via the Grand Canal, everyday meals for most citizens remained firmly wheat-focused."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.41, 39.90]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Jining",
+        "title": "Hearty Bites for Canal Labor",
+        "description": "Jining's cuisine reflects its canal labor roots, with simple yet rich dishes like Ba Zi Rou—pork braised in soy sauce shipped from the south, served as a quick energy boost for dockworkers. Another staple was Tian Mo, a savory grain porridge (despite its sweet-sounding name), originally short for “Tian Muo” or “field-end,” referencing the breakfast of grain porters after long shifts."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 116.59, 35.42 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Hangzhou",
+        "title": "Palace Dishes, Common Tables",
+        "description": "Hangzhou cuisine retains Southern Song dishes like West Lake Vinegar Fish, but evolved into everyday fare. Canal markets served quick bites like Pian’er Chuan and Cat’s Ear noodles for workers. West Lake greens and Qiantang River fish were shipped north via the Grand Canal."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 120.17, 30.22 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Tianjin",
+        "title": "Fast Bites at the Dock",
+        "description": "At the bustling Tianjin docks, the need for quick, filling meals gave rise to iconic snacks like jianbing guozi—a crisp mung bean pancake wrapped with fried dough and Shandong scallions, combining canal grain and overland produce. Another classic, Goubuli buns, emerged from the demands of merchants and travelers, offering a portable, high-end bite during long canal journeys."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 117.2, 39.08 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Suzhou",        
+        "title": "Refined Rice and Sweet Waterside Bites",
+        "description": "Suzhou cuisine centers on rice-based foods like congee and osmanthus rice cakes, contrasting with northern wheat staples. Canal boats offered elegant Su-style snacks—like rose cakes and jujube pastries—for traveling elites. Imported sugar from the south fueled the rise of Su-style sweets such as honey-glazed pork."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.59, 31.30]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Yangzhou",       
+        "title": "Birth of Huaiyang Elegance",
+        "description": "Lavish salt merchant banquets shaped early Huaiyang cuisine, with dishes like the “Three-Head Feast” prized for knife skills and heat control. Canal trade brought sugar and lard, elevating local pastries like thousand-layer cakes and jade shumai. Roast duck from the north merged with salted duck, while Yangzhou fried rice began as a portable meal for boatmen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 119.42, 32.37 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Linqing",       
+        "title": "Fast Bites at the Dock",
+        "description": "Jining blended northern staples like jianbing and scallions with soybean paste with southern goods such as Huai’an salted fish and Yangzhou pickles, delivered by canal boats. Canal laborers ate simple meals, but the busy docks gave rise to an early “fast food” culture—with ready-to-eat items like baked flatbreads and preserved vegetables."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [115.7, 36.83]
+      }
+    },
+      {
+      "type": "Feature",
+      "properties": {
+        "City": "Huaian",        
+        "title": "Preserved Flavors and River Fresh",
+        "description": "As a canal hub, Huai’an favored pickled foods like tea crisps and drunken crab for official banquets. Local wetland fish and greens were cooked lightly, unlike the saltier northern style. Soy sauces and bean pastes, shipped from the south, influenced northern cooking through the canal."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 119.15, 33.50 ]
+      }
+    }
+  ]
+}

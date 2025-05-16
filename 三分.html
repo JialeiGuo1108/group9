@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三分展示页面</title>
+<!-- Google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">  <!-- 添加这一行 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, SimHei, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(60%) brightness(0.85) sepia(0.1);
+            transition: all 0.6s ease;
+            transform: scale(1.1);
+        }
+
+        .section.active img {
+            filter: grayscale(0%) brightness(1) sepia(0);
+            transform: scale(1);
+        }
+
+        .section .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;  /* 添加这一行 */
+            font-weight: 400;  /* 将 300 改为 400 */
+            letter-spacing: 0.2em;  /* 将 0.1em 改为 0.2em */
+            color: white;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5), 2px 2px 4px rgba(0,0,0,0.7);
+            z-index: 3;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+        }
+
+        .section.active .title {
+            top: 25%;
+            font-size: 3.2rem;
+            font-family: 'ZCOOL XiaoWei', serif;  /* 添加这一行 */
+            letter-spacing: 0.25em;  /* 将 0.15em 改为 0.25em */
+        }
+
+        .section .description {
+    position: absolute;
+    top: 60%;  /* 原来是 65%，改为 60% */
+    left: 10%;
+    right: 10%;
+    transform: translateY(100px);
+    opacity: 0;
+    color: white;
+    text-align: center;
+    font-size: 0.95rem;  /* 原来是 1.1rem，改为 0.95rem */
+    line-height: 1.5;    /* 原来是 1.8，改为 1.5 */
+    text-shadow: 0 0 10px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.7);
+    z-index: 3;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+        .section.active .description {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+            transition: all 0.6s ease;
+        }
+
+        .section.active .overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+        }
+
+        /* 添加悬浮提示 */
+        .hover-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+
+        .section.active .hover-hint {
+            opacity: 0;
+        }
+
+        /* 添加分割线效果 */
+        .section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
+            z-index: 4;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .section:not(:last-child)::after {
+                top: auto;
+                bottom: 0;
+                left: 10%;
+                width: 80%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            }
+            
+            .section .title {
+        font-size: 2rem;
+        font-family: 'ZCOOL XiaoWei', serif;  /* 添加这一行 */
+    }
+    
+    .section.active .title {
+        font-size: 2.3rem;
+        font-family: 'ZCOOL XiaoWei', serif;  /* 添加这一行 */
+    }
+            
+            .section .description {
+                font-size: 0.85rem;  /* 原来是 0.95rem，改为 0.85rem */
+                left: 5%;
+                right: 5%;
+                line-height: 1.4;    /* 添加这一行 */
+            }
+        }
+
+        /* 加载动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section" data-index="0">
+            <img src="Image_general/技术.jpg" alt="技术">
+            <div class="overlay"></div>
+            <h2 class="title">Technology dissemination</h2>
+            <div class="description">
+                The water conservancy engineering technology of the Grand Canal of China represents the highest achievement of ancient science and technology. From lock design to water level regulation, from arc-shaped waterways to water distribution hubs, technological innovations along the canal have driven the development of water conservancy projects. These technologies spread to various places through the canal network, promoting the improvement of agricultural irrigation, urban water supply and flood control systems, and becoming an important channel for the exchange of ancient technologies.
+            </div>
+            <div class="hover-hint">Click to learn more</div>
+        </div>
+        
+        <div class="section" data-index="1">
+            <img src="Image_general/商业.jpg" alt="商业">
+            <div class="overlay"></div>
+            <h2 class="title">Business network</h2>
+            <div class="description">
+                The Grand Canal has built an economic artery connecting the north and the south and formed a unique canal commercial civilization. Through the transportation of the Grand Canal, silk, tea and porcelain from the south moved northward, while grains and furs from the north moved southward. The cities along the river flourished because of commerce. The canal gave rise to the development of the port economy, warehousing industry and finance industry. Canal cities such as Yangzhou, Suzhou and Hangzhou became important commercial centers.
+            </div>
+            <div class="hover-hint">Click to learn more</div>
+        </div>
+        
+        <div class="section" data-index="2">
+            <img src="Image_general/文化.jpg" alt="文化">
+            <div class="overlay"></div>
+            <h2 class="title">Cultural exchange</h2>
+            <div class="description">
+                The Grand Canal is not only a passage for the circulation of materials, but also a bond for cultural exchange. The canal connects the civilizations of the Yellow River and the Yangtze River, promoting the integration of the cultures of the north and the south. The cultural elements such as opera, folk customs, cuisine and architecture along the river influence each other, forming a unique canal cultural belt. The academies and temples along the Grand Canal have witnessed the collision of ideas and contributed to the diversity and unity of Chinese culture.
+            </div>
+            <div class="hover-hint">Click to learn more</div>
+        </div>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        
+        sections.forEach(section => {
+            section.addEventListener('click', function() {
+                // 移除所有section的active类
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // 为当前点击的section添加active类
+                this.classList.add('active');
+            });
+        });
+        
+        // 默认激活第一个部分
+// setTimeout(() => {
+//     document.querySelector('.section[data-index="0"]').classList.add('active');
+// }, 800);
+    </script>
+</body>
+</html>

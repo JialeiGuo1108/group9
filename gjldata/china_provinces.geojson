@@ -1,0 +1,379 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "北京",
+        "name_en": "Beijing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4074, 39.9042]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "天津",
+        "name_en": "Tianjin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.2010, 39.0874]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "河北",
+        "name_en": "Hebei"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.5149, 38.0428]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "山西",
+        "name_en": "Shanxi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [112.5624, 37.8733]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "内蒙古",
+        "name_en": "Inner Mongolia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [111.7665, 40.8172]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "辽宁",
+        "name_en": "Liaoning"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [123.4315, 41.8113]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "吉林",
+        "name_en": "Jilin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [125.3245, 43.8971]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "黑龙江",
+        "name_en": "Heilongjiang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [126.6426, 45.7417]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "上海",
+        "name_en": "Shanghai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.4737, 31.2304]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "江苏",
+        "name_en": "Jiangsu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [118.7778, 32.0617]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "浙江",
+        "name_en": "Zhejiang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.1551, 30.2741]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "安徽",
+        "name_en": "Anhui"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.2851, 31.8612]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "福建",
+        "name_en": "Fujian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.2956, 26.0990]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "江西",
+        "name_en": "Jiangxi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [115.9048, 28.6757]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "山东",
+        "name_en": "Shandong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.0207, 36.6683]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "河南",
+        "name_en": "Henan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.6531, 34.7655]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "湖北",
+        "name_en": "Hubei"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.3421, 30.5454]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "湖南",
+        "name_en": "Hunan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [112.9835, 28.1128]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "广东",
+        "name_en": "Guangdong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.2663, 23.1317]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "广西",
+        "name_en": "Guangxi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [108.3269, 22.8166]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "海南",
+        "name_en": "Hainan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.3479, 20.0200]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "重庆",
+        "name_en": "Chongqing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.5526, 29.5628]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "四川",
+        "name_en": "Sichuan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [104.0753, 30.6519]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "贵州",
+        "name_en": "Guizhou"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.7073, 26.5996]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "云南",
+        "name_en": "Yunnan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [102.7093, 25.0453]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "西藏",
+        "name_en": "Tibet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [91.1150, 29.6460]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "陕西",
+        "name_en": "Shaanxi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [108.9544, 34.2654]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "甘肃",
+        "name_en": "Gansu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.8343, 36.0594]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "青海",
+        "name_en": "Qinghai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.7781, 36.6228]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "宁夏",
+        "name_en": "Ningxia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.2324, 38.4867]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "新疆",
+        "name_en": "Xinjiang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.6271, 43.7928]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "台湾",
+        "name_en": "Taiwan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.9605, 23.6978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "香港",
+        "name_en": "Hong Kong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.1694, 22.3193]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "澳门",
+        "name_en": "Macau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [113.5439, 22.1987]
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Canal Technology Dissemination</title>
+     <!-- Maptiler GL JS CSS -->
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.css" rel="stylesheet" />
+    <!-- Import external CSS file -->
+    <link href="culturestyles.css" rel="stylesheet">
+    <script src="culturescript.js" defer></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+    
+    <!-- 在HTML文件的head部分添加 -->
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="map-container">
+        <div id="map"></div>
+        <div class="map-overlay"></div><!-- 羊皮纸质感 -->
+    </div>
+    
+    <div id ="console">
+        <div class="description">
+            <h1>Cultural Exchange</h1>
+        </div>
+        
+        <div class="slider-container">
+            <div class="icon-item">
+            <img src="./gjlimages/literature_icon2.png" alt="Icon 1" class="icon-image">
+            <span class="icon-text">Literature</span>
+            </div>
+            
+            <div class="icon-item">
+                <img src="./gjlimages/opera_icon2.png" alt="Icon 2" class="icon-image">
+                <span class="icon-text">Opera</span>
+            </div>
+            
+            <div class="icon-item">
+                <img src="./gjlimages/food_icon3.png" alt="Icon 3" class="icon-image">
+                <span class="icon-text">Diet</span>
+            </div>
+    
+            <div class="icon-item">
+                <img src="./gjlimages/dialect_icon2.png" alt="Icon 4" class="icon-image">
+                <span class="icon-text">Dialect</span>
+            </div>     
+        </div>
+        <div id="text-boxes-placeholder"></div>
+        
+         <div class="source">
+            <h2 id="h2_source">Source</h2>
+            <p id="p_source"><a href = "http://www.360doc.com/content/19/1027/21/45262611_869422938.shtml">The Grand Canal and the Spread of Traditional Chinese Opera: A Focus on Shandong Local Opera</a> | <a href = "https://www.mdpi.com/2220-9964/12/12/477">Analysis of Spatial and Temporal Distribution Patterns of Traditional Opera Culture along the Beijing–Hangzhou Grand Canal</a> </p>
+        </div>
+    
+    
+    </div>
+    
+     <!-- Maptiler GL JS -->
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.umd.min.js"></script>
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Custom JavaScript -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+</body>
+</html>

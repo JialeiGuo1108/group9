@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "nanyi_city",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "City": "Kaifeng", "Latitude": 34.712136408803531, "Longitude": 114.557742046498461, "description": "Kaifeng is considered the birthplace of Zaju, a major form of Chinese opera that rose to prominence during the Song Dynasty. Performances were held mainly in washa and goulan, the popular entertainment districts of the time. A standardized role system developed, including Dan (female roles), Mo (older male roles), Jing (painted-face roles), and Za (comic and supporting roles).", "Record": "“构肆乐人，自过七夕，便搬《目连救母》杂剧……观者增倍。”（《东京梦华录·中元节》）","iconImage": "gjlimages/city_icons/opera_kaifeng.png" }, "geometry": { "type": "Point", "coordinates": [ 114.56, 34.71 ] } },
+
+{ "type": "Feature", "properties": { "City": "Hangzhou", "Latitude": 30.218641751304975, "Longitude": 120.167661648449808, "description": "During the Yuan Dynasty, the creative heart of Zaju shifted southward, making Hangzhou a key hub for performance and innovation. Here, Zaju blended with Nanxi drama from Wenzhou, giving rise to a more lyrical and expressive operatic style that laid the foundation for later Southern Chinese theatrical traditions.", "Record": "“绍兴年间，临安瓦舍勾栏皆仿汴京旧制，杂剧艺人多‘北人’。”（《武林旧事·瓦子勾栏》）","iconImage": "gjlimages/city_icons/opera_hangzhou.png" }, "geometry": { "type": "Point", "coordinates": [ 120.17, 30.22 ] } }
+]
+}

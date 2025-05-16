@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ming-Qing Huizhou Merchants Commercial Network Map</title>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="yydstyles.css">
+    
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+    
+    .info-box-title-area h3 {
+        font-family: 'Ma Shan Zheng', cursive !important;
+    }
+</style>
+<body>
+    
+    <div id="controls">
+        <div class="control-group">
+            <label class="control-label" for="center-select">Flow Center:</label>
+            <select id="center-select">
+                <option value="Yangzhou">Yangzhou</option>
+                <option value="Beijing">Beijing</option>
+                <option value="Linqing">Linqing</option>
+                <option value="Jining">Jining</option>
+                <option value="Huai'an">Huai'an</option>
+                <option value="Suzhou">Suzhou</option>
+                <option value="Hangzhou">Hangzhou</option>
+                <option value="Wuxi">Wuxi</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="goods-filter">Goods Filter:</label>
+            <select id="goods-filter">
+                <option value="all">All Goods</option>
+                <option value="Salt">Salt</option>
+                <option value="Tea">Tea</option>
+                <option value="Timber">Timber</option>
+                <option value="Cloth">Cloth</option>
+                <option value="Grain">Grain</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Goods Legend:</label>
+            <div id="bubble-legend-container"></div>
+        </div>
+
+        <div class="legend-group map-legend-group">
+            <div class="legend-title">City Types:</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #a6bddb;"></div><span>Terminal City</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #74a9cf;"></div><span>Transit Hub</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #2b8cbe;"></div><span>Distribution Center</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #0570b0;"></div><span>Production Area</span>
+                </div>
+            </div>
+        </div>
+        <div class="legend-group map-legend-group">
+            <div class="legend-title">Route Width (Trade Volume):</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-line-volume-high"></div><span>High</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line-volume-low"></div><span>Low</span>
+                </div>
+            </div>
+        </div>
+        <div class="legend-group map-legend-group">
+            <div class="legend-title">Canal Legend:</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #1A5599; width: 20px; height: 8px;"></div>
+                    <span>Grand Canal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map-container">
+        <div id="map"></div>
+        <div id="info-box">
+            <div class="info-box-title-area">
+                <h3>Hui Merchants Network</h3>
+            </div>
+
+            <div class="info-section" id="guild-distribution-section">
+                <div class="section-content guild-section">
+                    <div class="chart-container chart-container-guild">
+                        <canvas id="guildChart"></canvas>
+                    </div>
+                    <div class="text-container guild-text">
+                        <h3 class="section-title">Distribution of Merchants</h3>
+                        <p>In the Ming and Qing dynasties, the Grand Canal's prosperity boosted trade along its route. Huizhou merchants, the most prominent group, came to dominate commercial activity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section" id="huishang-overview-section">
+                <div class="section-content overview-section">
+                    <div class="text-container">
+                        <h3 class="section-title">Hui Merchants</h3>
+                        <p>Originating from Anhui, Hui merchants rose in the mid-Ming dynasty and peaked in the Qing dynasty. Their commercial network spanned the entire country, with Grand Canal cities as key hubs.</p>
+                    </div>
+                    <img src="yydimages/hui.jpg" alt="Huizhou merchants commercial activities scene">
+                </div>
+            </div>
+
+            <div class="info-section" id="goods-proportion-section">
+                <div class="section-content goods-prop-section">
+                    <div class="chart-container chart-container-bubble">
+                        <div class="bubble-chart-container" id="bubbleChart"></div>
+                    </div>
+                    <div class="text-container bubble-text">
+                        <h3 class="section-title">Proportion of Goods</h3>
+                        <p>The pie chart reveals that salt and tea dominated Huizhou merchants’ trade, reflecting their significant economic value in Grand Canal commerce during the Ming and Qing dynasties.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="source-section" id="data-source-section">
+                <p>Data Sources: Zheng, M. (2020). Research on Huizhou Merchants and Their Social Activities in the Canal Area of Ming and Qing Dynasties. The Central Plains Culture Research, 8(3), 108-116.</p>
+            </div>
+        </div>
+        <div class="city-tooltip"></div>
+        <div class="flow-tooltip"></div>
+    </div>
+
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/maptiler-sdk.umd.min.js"></script>
+    <script>
+        // Function to adjust color brightness/alpha
+        function adjustColor(hex, percent, alpha = 1) { hex = hex.replace(/^#/, ''); let r = parseInt(hex.substring(0, 2), 16); let g = parseInt(hex.substring(2, 4), 16); let b = parseInt(hex.substring(4, 6), 16); r = Math.max(0, Math.min(255, Math.round(r * (1 + percent / 100)))); g = Math.max(0, Math.min(255, Math.round(g * (1 + percent / 100)))); b = Math.max(0, Math.min(255, Math.round(b * (1 + percent / 100)))); if (alpha < 1) { return `rgba(${r}, ${g}, ${b}, ${alpha})`; } return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`; }
+
+        // Constants and Data
+        const defaultFlowWidthFactor = 3; const defaultAnimationSpeed = 2;
+        const goodsColors = { "Salt": "#B5B5B5", "Tea": "#20894D", "Timber": "#7A1E32", "Cloth": "#8D4585", "Grain": "#5E8B7E" };
+        const cityTypeColors = { "Terminal City": "#a6bddb", "Transit Hub": "#74a9cf", "Distribution Center": "#2b8cbe", "Production Area": "#0570b0" };
+        const pieColors = ['#b35806', '#f1a340', '#fee0b6', '#d8daeb', '#998ec3', '#542788'];
+        const tradeVolumes = { "Salt": { base: 4.5 }, "Tea": { base: 3.8 }, "Timber": { base: 3.5 }, "Cloth": { base: 3.2 }, "Grain": { base: 4.0 } };
+        const goodsProportions = [{ name: "Salt", percentage: 38 }, { name: "Tea", percentage: 25 }, { name: "Cloth", percentage: 10 }, { name: "Timber", percentage: 8 }, { name: "Grain", percentage: 4 }];
+        const guildCounts = [{ name: "Hui", count: 280 }, { name: "Shanxi", count: 180 }, { name: "Jiang-Zhe", count: 150 }, { name: "Guangdong", count: 120 }, { name: "Fujian", count: 90 }, { name: "Others", count: 180 }];
+        const cityData = [
+            { name: "Beijing", type: "Terminal City", role: "Market consumption center, dense guilds", goods: ["Tea", "Cloth", "Salt", "Grain"], routes: [{ from: "Wuyuan", via: "Linqing", to: "Beijing", good: "Tea" }, { from: "Suzhou", via: "Jining", to: "Beijing", good: "Cloth" }], lng: 116.40, lat: 39.90, size: 50, mainGood: "Tea" },
+            { name: "Linqing", type: "Transit Hub", role: "Tea northward transport transfer point", goods: ["Tea", "Cloth"], routes: [{ from: "Wuyuan", to: "Linqing", good: "Tea" }, { to: "Beijing", good: "Tea" }], lng: 115.71, lat: 36.84, size: 45, mainGood: "Tea" },
+            { name: "Jining", type: "Transit Port", role: "Complementary function with Linqing", goods: ["Tea", "Cloth", "Grain"], routes: [{ from: "Wuyuan", to: "Jining", good: "Tea" }, { from: "Wuxi", to: "Jining", good: "Cloth" }, { from: "Suzhou", to: "Jining", good: "Cloth" }, { to: "Beijing", good: "Tea" }, { to: "Hangzhou", good: "Grain" }], lng: 116.59, lat: 35.41, size: 45, mainGood: "Cloth" },
+            { name: "Yangzhou", type: "Bulk Goods Distribution Center", role: "Salt industry control center", goods: ["Salt", "Timber"], routes: [{ from: "Huai'an", to: "Yangzhou", good: "Salt" }, { to: "Suzhou", good: "Salt" }, { from: "Huizhou", to: "Yangzhou", good: "Timber" }], lng: 119.42, lat: 32.39, size: 50, mainGood: "Salt" },
+            { name: "Huai'an", type: "Salt Production Area", role: "Salt distribution source", goods: ["Salt"], routes: [{ to: "Yangzhou", good: "Salt" }, { to: "Suzhou", good: "Salt" }], lng: 119.02, lat: 33.61, size: 40, mainGood: "Salt", zoom: 7.5, center: [119.02, 33.61] },
+            { name: "Suzhou", type: "Jiangnan Hub City", role: "Cloth source, active commerce", goods: ["Cloth", "Tea", "Timber", "Grain"], routes: [{ to: "Jining", good: "Cloth" }, { to: "Beijing", good: "Cloth" }, { to: "Beijing", good: "Grain" }], lng: 120.62, lat: 31.30, size: 50, mainGood: "Cloth" },
+            { name: "Hangzhou", type: "Jiangnan Commercial Capital", role: "Tea distribution center, timber destination", goods: ["Tea", "Timber", "Grain"], routes: [{ from: "Wuyuan", to: "Hangzhou", good: "Tea" }, { from: "Jixi", to: "Hangzhou", good: "Timber" }, { to: "Beijing", good: "Grain" }], lng: 120.16, lat: 30.25, size: 45, mainGood: "Tea" },
+            { name: "Wuxi", type: "Cloth Production Area", role: "Starting point for northward cloth transport", goods: ["Cloth"], routes: [{ to: "Huai'an", good: "Cloth" }, { to: "Yangzhou", good: "Cloth" }, { to: "Jining", good: "Cloth" }], lng: 120.30, lat: 31.57, size: 40, mainGood: "Cloth" },
+            { name: "Wuyuan", type: "Production Area", role: "Tea production area", goods: ["Tea"], routes: [{ to: "Hangzhou", good: "Tea" }, { to: "Linqing", good: "Tea" }], lng: 117.85, lat: 29.25, size: 35, mainGood: "Tea" },
+            { name: "Huizhou", type: "Production Area", role: "Timber production area", goods: ["Timber"], routes: [{ to: "Yangzhou", good: "Timber" }], lng: 118.33, lat: 29.81, size: 35, mainGood: "Timber" },
+            { name: "Jixi", type: "Production Area", role: "Timber distribution center", goods: ["Timber"], routes: [{ to: "Hangzhou", good: "Timber" }], lng: 118.60, lat: 30.07, size: 35, mainGood: "Timber" },
+            { name: "Yuncheng", type: "Production Area", role: "Important salt production area (Xiechi)", goods: ["Salt"], routes: [{ to: "Beijing", good: "Salt" }], lng: 111.00, lat: 35.02, size: 35, mainGood: "Salt" }
+        ];
+        const tradeRoutes = []; cityData.forEach(city => { if (city.routes && city.routes.length > 0) { city.routes.forEach(route => { if (!route.to) return; const tce = cityData.some(c => c.name === route.to); const sce = route.from ? cityData.some(c => c.name === route.from) : true; if (!tce || !sce) return; const source = route.from ? cityData.find(c => c.name === route.from) : city; const target = cityData.find(c => c.name === route.to); if (source && target) { tradeRoutes.push({ source: source.name, target: target.name, good: route.good, via: route.via, isMainRoute: source.size >= 45 || target.size >= 45 }); } }); } });
+
+        maptilersdk.config.apiKey = 'y9ojKtjS4KN4UaiG5YUB'; // Replace with your actual MapTiler API key
+        const map = new maptilersdk.Map({ container: 'map', style: 'https://api.maptiler.com/maps/0196a47b-9a4a-7581-85b3-4ad07e239d9a/style.json?key=y9ojKtjS4KN4UaiG5YUB', center: [119, 33], zoom: 6, maxZoom: 10, minZoom: 3 });
+        const cityTooltip = document.querySelector(".city-tooltip"); const flowTooltip = document.querySelector(".flow-tooltip");
+
+        map.on('load', function () {
+            // Add China Canal GeoJSON
+            try {
+                fetch('yyddata/china_canal.geojson') // Ensure this path is correct
+                    .then(response => response.json())
+                    .then(data => {
+                        map.addSource('china-canal', { type: 'geojson', data: data });
+                        map.addLayer({
+                            id: 'china-canal-layer',
+                            type: 'line',
+                            source: 'china-canal',
+                            layout: { 'line-join': 'round', 'line-cap': 'round' },
+                            paint: { 'line-color': '#034e7b', 'line-width': 5, 'line-opacity': 1 }
+                        });
+                    })
+                    .catch(error => console.error('Failed to load China Canal GeoJSON:', error));
+            } catch (error) {
+                console.error('Error loading China Canal GeoJSON:', error);
+            }
+
+            let activeMarkers = [], centerMarker = null, flowLines = [], animationFrameId = null, particleGroups = [];
+            let cityLabels = new Map(), visibleCities = new Set();
+
+            // *** MODIFIED Guild Chart initialization ***
+            function initGuildChart() {
+                const ctx = document.getElementById('guildChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: guildCounts.map(item => item.name),
+                        datasets: [{
+                            data: guildCounts.map(item => item.count), // Use counts for calculation
+                            backgroundColor: pieColors,
+                            borderColor: '#f1e9d2',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'right',
+                                labels: { color: '#3c2a1e', font: { family: "'Noto Serif SC', serif", size: 9 }, boxWidth: 8, padding: 5 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) { // MODIFIED: Show Name and Percentage
+                                        let label = context.label || '';
+                                        if (label) { label += ': '; }
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const percentage = ((context.raw / total) * 100).toFixed(0); // Calculate and format percentage
+                                        label += `${percentage}%`;
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        animation: { animateRotate: true, animateScale: true },
+                        layout: { padding: { left: 5, right: 0, top: 2, bottom: 2 } }
+                    }
+                });
+            }
+
+            function createOrderedSymbols() {
+                const container = document.getElementById('bubbleChart');
+                container.innerHTML = '';
+                container.style.position = 'relative';
+                container.style.display = 'block'; // Ensure no flex styles interfere
+                container.style.overflow = 'hidden'; // Hide potential minor overflows
+
+                // Sort data from smallest percentage to largest
+                const sortedData = [...goodsProportions].sort((a, b) => a.percentage - b.percentage);
+
+                if (!sortedData.length) return;
+
+                const maxPercentage = sortedData[sortedData.length - 1].percentage;
+                const minPercentage = sortedData[0].percentage;
+
+                const containerWidth = container.clientWidth || 120;
+                const containerHeight = container.clientHeight || 90; // Use container height from CSS
+
+                // Size Parameters - adjust as needed
+                const maxSymbolRadius = 40; // Max size (can be adjusted)
+                const minSymbolRadius = 8;
+                const padding = 8;          // Padding from container edges
+                const gap = 4;              // Minimum gap between circle edges
+                // const labelHeightApproximation = 20; // Space needed for label below
+                // Inside createOrderedSymbols()
+                const labelHeightApproximation = Math.min(containerWidth, containerHeight) * 0.15; // Was 0.12, try 0.15 or 0.18
+
+                // --- Calculate Radii ---
+                const radii = sortedData.map(item => {
+                    let r = minSymbolRadius;
+                    if (maxPercentage - minPercentage > 0) {
+                        r = minSymbolRadius + ((item.percentage - minPercentage) / (maxPercentage - minPercentage)) * (maxSymbolRadius - minSymbolRadius);
+                    } else if (maxPercentage > 0) {
+                        r = (minSymbolRadius + maxSymbolRadius) / 2;
+                    }
+                    return Math.max(minSymbolRadius, r);
+                });
+
+                // --- Calculate Required Length Along Diagonal ---
+                let totalRequiredLength = 0;
+                for (let i = 0; i < radii.length; i++) {
+                    totalRequiredLength += radii[i] * 2; // Add diameter
+                    if (i < radii.length - 1) {
+                        totalRequiredLength += gap; // Add gap between circles
+                    }
+                }
+
+                // --- Determine Diagonal Start/End Points & Available Length ---
+                // Bottom-left to Top-right diagonal within padding
+                const startX = padding;
+                const startY = containerHeight - padding - labelHeightApproximation; // Start higher up to allow label space
+                const endX = containerWidth - padding;
+                const endY = padding;
+
+                const dx = endX - startX;
+                const dy = endY - startY; // Note: dy will be negative
+                const availableDiagonalLength = Math.sqrt(dx * dx + dy * dy);
+
+                // --- Calculate Scaling Factor ---
+                let scale = 1.0;
+                if (totalRequiredLength > availableDiagonalLength && totalRequiredLength > 0) {
+                    scale = availableDiagonalLength / totalRequiredLength;
+                    // console.warn(`Content larger than available diagonal. Scaling circles by ${scale.toFixed(2)}`);
+                }
+
+                // --- Calculate Scaled Radii and Gap ---
+                const scaledRadii = radii.map(r => r * scale);
+                const scaledGap = gap * scale;
+
+                // --- Position Circles Along Diagonal ---
+                let currentDistanceAlongDiagonal = 0; // Start at the beginning of the diagonal line segment
+
+                scaledRadii.forEach((radius, index) => {
+                    // Position the center of the current circle
+                    const centerDistanceAlongDiagonal = currentDistanceAlongDiagonal + radius;
+
+                    // Calculate (cx, cy) coordinates based on distance along the diagonal
+                    // Fraction of the total diagonal length
+                    const fraction = availableDiagonalLength > 0 ? (centerDistanceAlongDiagonal / availableDiagonalLength) : 0;
+                    const cx = startX + fraction * dx;
+                    const cy = startY + fraction * dy; // dy is negative, so cy decreases
+
+                    // Create Circle Element
+                    const circle = document.createElement('div');
+                    circle.style.position = 'absolute';
+                    circle.style.width = `${radius * 2}px`;
+                    circle.style.height = `${radius * 2}px`;
+                    circle.style.borderRadius = '50%';
+                    circle.style.backgroundColor = goodsColors[sortedData[index].name] || '#cccccc';
+                    circle.style.border = '1px solid rgba(0,0,0,0.1)';
+                    circle.style.left = `${cx - radius}px`; // Position using top-left corner
+                    circle.style.top = `${cy - radius}px`;
+                    circle.title = `${sortedData[index].name}: ${sortedData[index].percentage}%`; // Tooltip
+
+                    // Add Percentage Text Inside Circle
+                    circle.style.display = 'flex';
+                    circle.style.alignItems = 'center';
+                    circle.style.justifyContent = 'center';
+                    circle.style.color = '#ffffff';
+                    circle.style.textShadow = '1px 1px 1px rgba(0,0,0,0.6)';
+                    circle.style.fontWeight = 'bold';
+                    circle.style.overflow = 'hidden';
+
+                    let fontSize = 0;
+                    if (radius < 10) { fontSize = 7; }
+                    else if (radius < 18) { fontSize = 9; }
+                    else if (radius < 25) { fontSize = 10; }
+                    else { fontSize = 11; }
+                    circle.style.fontSize = `${fontSize}px`;
+
+                    // Only show text if it might fit reasonably
+                    if (radius * 2 > 12) { // Example threshold: diameter > 12px
+                        circle.textContent = `${sortedData[index].percentage}%`;
+                    }
+
+                    container.appendChild(circle);
+
+                    // Create and Position Name Label Below Circle
+                    const label = document.createElement('div');
+                    label.textContent = sortedData[index].name;
+                    label.style.position = 'absolute';
+                    label.style.textAlign = 'center';
+                    label.style.fontSize = '9px';
+                    label.style.color = '#3c2a1e';
+                    label.style.fontWeight = 'bold';
+                    // Position below the circle's bottom edge
+                    const labelTop = cy + radius + 10; // cy + radius is bottom edge, +2 for gap
+                    label.style.top = `${labelTop}px`;
+                    label.style.left = `${cx}px`; // Center horizontally relative to circle center
+                    label.style.transform = 'translateX(-50%)'; // Center the text block
+                    label.style.maxWidth = `${radius * 2 + 10 * scale}px`; // Keep a reasonable max width
+                    label.style.whiteSpace = 'normal'; // ALLOW WRAPPING
+                    label.style.overflow = 'visible';  // Or remove if you want ellipsis for very long words
+                    label.style.textOverflow = 'clip'; // Or 'ellipsis' if you prefer ... for overflow
+                    // You might need to adjust line-height for wrapped text
+                    label.style.lineHeight = '1'; // Example
+                    label.style.pointerEvents = 'none';
+
+                    container.appendChild(label);
+
+
+                    // Update the distance for the start of the next circle
+                    currentDistanceAlongDiagonal = centerDistanceAlongDiagonal + radius + scaledGap;
+                });
+            }
+            function createBubbleLegend() { const legendContainer = document.getElementById('bubble-legend-container'); legendContainer.innerHTML = ''; goodsProportions.forEach(item => { const legendItem = document.createElement('div'); legendItem.className = 'bubble-legend-item'; const colorBox = document.createElement('div'); colorBox.className = 'bubble-legend-color'; colorBox.style.backgroundColor = goodsColors[item.name]; const text = document.createElement('span'); text.className = 'bubble-legend-text'; text.textContent = item.name; legendItem.appendChild(colorBox); legendItem.appendChild(text); legendContainer.appendChild(legendItem); }); }
+            function addBaseTradeRoutesLayer() { if (map.getSource('base-trade-routes')) { map.removeLayer('base-trade-routes-layer'); map.removeSource('base-trade-routes'); } const canalCoords = [[116.40, 39.90], [115.71, 36.84], [116.59, 35.41], [119.02, 33.61], [119.42, 32.39], [120.62, 31.30]]; const riverCoords = [[119.42, 32.39], [118.80, 32.06], [117.20, 31.00], [114.30, 30.58]]; const otherRouteCoords = [[[118.33, 29.81], [119.42, 32.39]], [[117.85, 29.25], [120.16, 30.25]]]; const features = [{ type: 'Feature', properties: { type: 'canal', name: 'Grand Canal' }, geometry: { type: 'LineString', coordinates: canalCoords } }, { type: 'Feature', properties: { type: 'river', name: 'Yangtze River' }, geometry: { type: 'LineString', coordinates: riverCoords } }, ...otherRouteCoords.map((coords, i) => ({ type: 'Feature', properties: { type: 'traderoute', name: `Trade Route ${i + 1}` }, geometry: { type: 'LineString', coordinates: coords } }))]; map.addSource('base-trade-routes', { type: 'geojson', data: { type: 'FeatureCollection', features: features } }); map.addLayer({ id: 'base-trade-routes-layer', type: 'line', source: 'base-trade-routes', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': ['match', ['get', 'type'], 'canal', '#3b7960', 'river', '#5d6b89', '#c8b798'], 'line-width': ['match', ['get', 'type'], 'canal', 3, 'river', 4, 2], 'line-opacity': 0.3, 'line-dasharray': ['match', ['get', 'type'], 'canal', [4, 3], 'river', [1, 0], [4, 3]] } }); }
+            function createCityLabel(city) { if (cityLabels.has(city.name)) { cityLabels.get(city.name).remove(); } if (!visibleCities.has(city.name)) { return null; } const label = document.createElement('div'); label.className = 'city-label'; label.textContent = city.name; const labelMarker = new maptilersdk.Marker({ element: label, anchor: 'top', offset: [0, (city.size * 0.7 / 2) + 2] }).setLngLat([city.lng, city.lat]).addTo(map); cityLabels.set(city.name, labelMarker); return labelMarker; }
+            function createCityMarker(city, isCenter = false) { visibleCities.add(city.name); let typeColor = city.type.includes("Terminal") ? cityTypeColors["Terminal City"] : city.type.includes("Transit") ? cityTypeColors["Transit Hub"] : (city.type.includes("Distribution") || city.type.includes("Commercial")) ? cityTypeColors["Distribution Center"] : cityTypeColors["Production Area"]; const el = document.createElement('div'); el.className = 'bubble-marker'; if (city.size >= 45) el.classList.add('city-type-1'); const markerSize = city.size * 0.7; el.style.width = `${markerSize}px`; el.style.height = `${markerSize}px`; el.style.background = `radial-gradient(circle, ${typeColor} 60%, ${adjustColor(typeColor, -35, 0.7)} 100%)`; el.style.borderRadius = '50%'; el.style.zIndex = isCenter ? '20' : '10'; const marker = new maptilersdk.Marker({ element: el, draggable: false, anchor: 'center' }).setLngLat([city.lng, city.lat]); el.addEventListener('mouseenter', () => { cityTooltip.style.opacity = '1'; cityTooltip.innerHTML = `<h4>${city.name}</h4><p><strong>Type:</strong> ${city.type}</p><p><strong>Role:</strong> ${city.role}</p><p><strong>Goods:</strong> ${city.goods.join(', ')}</p>`; el.style.zIndex = '100'; highlightRelatedFlows(city.name); }); el.addEventListener('mouseleave', () => { cityTooltip.style.opacity = '0'; el.style.zIndex = isCenter ? '20' : '10'; resetFlowHighlights(); }); el.addEventListener('mousemove', (e) => { cityTooltip.style.left = (e.pageX + 15) + 'px'; cityTooltip.style.top = (e.pageY - 15) + 'px'; }); createCityLabel(city); return { marker, city, element: el }; }
+            function calculateFlowPath(fromCity, toCity, index, total) { const fromPoint = map.project([fromCity.lng, fromCity.lat]); const toPoint = map.project([toCity.lng, toCity.lat]); const dx = toPoint.x - fromPoint.x; const dy = toPoint.y - fromPoint.y; const dist = Math.sqrt(dx * dx + dy * dy); const curveFactor = 0.25 + (index % 3) * 0.1; const curveDirection = index % 2 === 0 ? 1 : -1; const midX = (fromPoint.x + toPoint.x) / 2; const midY = (fromPoint.y + toPoint.y) / 2; const controlX = midX + (-dy * curveFactor * curveDirection); const controlY = midY + (dx * curveFactor * curveDirection); return { path: `M${fromPoint.x},${fromPoint.y} Q${controlX},${controlY} ${toPoint.x},${toPoint.y}`, points: { from: fromPoint, to: toPoint, ctrl: { x: controlX, y: controlY } }, distance: dist }; }
+            function createParticles(pathData, color, particleCount, flowGroup) { const particleContainer = document.createElementNS('http://www.w3.org/2000/svg', 'g'); const particlesArray = []; for (let i = 0; i < particleCount; i++) { const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); const size = 2 + Math.random() * 2; particle.setAttribute('r', size / 2); particle.setAttribute('fill', color); particle.setAttribute('class', 'particle'); const startPos = Math.random(); const baseSpeed = (0.0005 + Math.random() * 0.0015); particlesArray.push({ element: particle, pos: startPos, speed: baseSpeed * defaultAnimationSpeed, baseSpeed: baseSpeed, size: size }); particleContainer.appendChild(particle); } flowGroup.appendChild(particleContainer); return { group: particleContainer, particles: particlesArray }; }
+            function getPointOnQuadraticCurve(p0, p1, p2, t) { const omt = 1 - t; const x = omt * omt * p0.x + 2 * omt * t * p1.x + t * t * p2.x; const y = omt * omt * p0.y + 2 * omt * t * p1.y + t * t * p2.y; return { x, y }; }
+            function animateParticles() { particleGroups.forEach(({ particles, pathPoints }) => { particles.forEach(p => { p.pos += p.speed; if (p.pos > 1) p.pos = 0; const currentPoint = getPointOnQuadraticCurve(pathPoints.from, pathPoints.ctrl, pathPoints.to, p.pos); p.element.setAttribute('cx', currentPoint.x); p.element.setAttribute('cy', currentPoint.y); }); }); animationFrameId = requestAnimationFrame(animateParticles); }
+            function highlightRelatedFlows(cityName) { flowLines.forEach(flow => { const isRelated = flow.source === cityName || flow.target === cityName; flow.element.style.opacity = isRelated ? '1' : '0.2'; if (isRelated) flow.element.style.filter = 'drop-shadow(0 0 4px #9c7c48)'; flow.particleGroup.childNodes.forEach(particle => { if (isRelated) { if (particle.tagName === 'circle') { const baseRadius = particle.__baseRadius || parseFloat(particle.getAttribute('r')); if (!particle.__baseRadius) particle.__baseRadius = baseRadius; particle.setAttribute('r', baseRadius * 1.5); } particle.style.filter = 'drop-shadow(0 0 2px #9c7c48)'; } particle.style.opacity = isRelated ? '0.8' : '0.2'; }); }); }
+            function resetFlowHighlights() { flowLines.forEach(flow => { flow.element.style.opacity = '0.7'; flow.element.style.filter = 'none'; flow.particleGroup.childNodes.forEach(particle => { if (particle.tagName === 'circle' && particle.__baseRadius) { particle.setAttribute('r', particle.__baseRadius); } particle.style.filter = 'none'; particle.style.opacity = '0.8'; }); }); }
+            function calculateTradeVolume(good, route) { let v = tradeVolumes[good]?.base || 3; if (route.via) v *= 0.85; if (good === "Salt" && (route.source === "Huai'an" || route.target === "Yangzhou")) v *= 1.3; if (good === "Tea" && route.source === "Wuyuan") v *= 1.2; if (good === "Cloth" && route.source === "Suzhou") v *= 1.15; return v; }
+            function findRoutes(centerCityName, selectedGood = 'all') { return tradeRoutes.filter(route => (route.source === centerCityName || route.target === centerCityName) && (selectedGood === 'all' || route.good === selectedGood)).map(route => ({ ...route })); }
+            function createFlowNetwork(centerCityName, selectedGood = 'all') {
+                activeMarkers.forEach(({ marker }) => marker.remove()); activeMarkers = []; if (centerMarker) { centerMarker.marker.remove(); centerMarker = null; } cityLabels.forEach(label => label.remove()); cityLabels.clear(); visibleCities.clear();
+                const svgGroup = document.querySelector('#map-container svg g'); if (svgGroup) { svgGroup.innerHTML = ''; } else { console.error("SVG group not found"); return; }
+                flowLines = []; particleGroups = []; if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                addBaseTradeRoutesLayer();
+                const centerCity = cityData.find(c => c.name === centerCityName); if (!centerCity) return;
+                visibleCities.add(centerCityName); let routesToShow = findRoutes(centerCityName, selectedGood);
+                const uniqueRouteKeys = new Set(); const uniqueRoutesToShow = routesToShow.filter(route => { const key = `${route.source}-${route.target}-${route.good}`; if (!uniqueRouteKeys.has(key)) { uniqueRouteKeys.add(key); return true; } return false; });
+                uniqueRoutesToShow.forEach(r => { visibleCities.add(r.source); visibleCities.add(r.target); if (r.via) visibleCities.add(r.via); });
+                centerMarker = createCityMarker(centerCity, true); centerMarker.marker.addTo(map);
+                cityData.forEach(city => { if (city.name !== centerCityName && visibleCities.has(city.name)) { const markerInfo = createCityMarker(city); markerInfo.marker.addTo(map); activeMarkers.push(markerInfo); } });
+                uniqueRoutesToShow.forEach((route, index) => {
+                    const sourceCity = cityData.find(c => c.name === route.source); const targetCity = cityData.find(c => c.name === route.target); if (!sourceCity || !targetCity) return;
+                    const pathData = calculateFlowPath(sourceCity, targetCity, index, uniqueRoutesToShow.length); const tradeVolume = calculateTradeVolume(route.good, route); const flowWidth = Math.max(1, tradeVolume * 0.8 * defaultFlowWidthFactor);
+                    const flowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    Object.assign(flowPath.dataset, { from: route.source, to: route.target, good: route.good, volume: tradeVolume.toFixed(1) });
+                    flowPath.setAttribute('d', pathData.path); flowPath.setAttribute('stroke', goodsColors[route.good] || "#624e39"); flowPath.setAttribute('stroke-width', flowWidth); flowPath.setAttribute('class', 'flow-path'); flowPath.style.strokeDasharray = 'none';
+                    svgGroup.appendChild(flowPath);
+                    const particleCount = Math.min(Math.max(3, Math.floor(tradeVolume * 2.5)), Math.floor(pathData.distance / 15)); const particleData = createParticles(pathData, goodsColors[route.good] || "#624e39", particleCount, svgGroup);
+                    flowLines.push({ element: flowPath, source: route.source, target: route.target, good: route.good, particleGroup: particleData.group }); particleGroups.push({ particles: particleData.particles, pathPoints: pathData.points });
+                });
+                animateParticles();
+
+                // 自定义每个城市的定位和缩放级别
+                const cityViewSettings = {
+                    "Yangzhou": { center: [119.22, 31.7], zoom: 6.5 },
+                    "Beijing": { center: [113.6, 35.8], zoom: 5 },
+                    "Linqing": { center: [114.71, 35], zoom: 5.1 },
+                    "Jining": { center: [114.59, 35.41], zoom: 5 },
+                    "Huai'an": { center: [119.02, 32.31], zoom: 7 },
+                    "Suzhou": { center: [116.3, 35.8], zoom: 5.3 },
+                    "Hangzhou": { center: [117.16, 34.9], zoom: 5.2 },
+                    "Wuxi": { center: [118.30, 33.57], zoom: 6.5 }
+                };
+
+                // 获取当前城市的视图设置，如果没有则使用默认值
+                const viewSettings = cityViewSettings[centerCityName] || {
+                    center: [centerCity.lng, centerCity.lat],
+                    zoom: 6.5
+                };
+
+                map.flyTo({
+                    center: viewSettings.center,
+                    zoom: viewSettings.zoom,
+                    duration: 1000
+                });
+            }
+            map.on('move', () => {
+                if (!centerMarker) return; if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                flowLines.forEach((flow, index) => { const src = cityData.find(c => c.name === flow.source); const tgt = cityData.find(c => c.name === flow.target); if (!src || !tgt) return; const pathData = calculateFlowPath(src, tgt, index, flowLines.length); flow.element.setAttribute('d', pathData.path); if (particleGroups && particleGroups[index]) { particleGroups[index].pathPoints = pathData.points; } });
+                animateParticles();
+            });
+            const mapDiv = document.getElementById('map'); const svgContainer = document.createElement('div'); Object.assign(svgContainer.style, { position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', pointerEvents: 'none', zIndex: '1' }); const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svgElement.setAttribute('width', '100%'); svgElement.setAttribute('height', '100%'); const svgGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g'); svgElement.appendChild(svgGroup); svgContainer.appendChild(svgElement); mapDiv.appendChild(svgContainer);
+            initGuildChart(); createOrderedSymbols(); createBubbleLegend(); createFlowNetwork('Yangzhou', 'all');
+            const centerSelect = document.getElementById('center-select'); const goodsFilter = document.getElementById('goods-filter');
+            centerSelect.addEventListener('change', () => { createFlowNetwork(centerSelect.value, goodsFilter.value); });
+            goodsFilter.addEventListener('change', () => { createFlowNetwork(centerSelect.value, goodsFilter.value); });
+        });
+    </script>
+</body>
+
+</html>

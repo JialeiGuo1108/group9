@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Beijing",     
+        "title": "Birthplace of Peking Opera",
+        "description": "Beijing was the final destination for Huiban troupes, marking a key moment in opera history when the Sanqing Troupe arrived in 1790. Over time, these Anhui troupes blended with local and regional styles, eventually forming Peking Opera, known for its distinctive 'Huguang Yun'."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.41, 39.90]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Luoyang",
+        "title": "Elegant Style of Zaju",
+        "description": "Zaju opera absorbed the refined qualities of classical poetry and elegant language. Compared to the more popular and lively performances in Bianjing (Kaifeng), Luoyang's style was known for its literary grace and cultured expression."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 112.87, 34.69 ] 
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Kaifeng",
+        "title": "Birthplace of Zaju Opera",
+        "description": "Kaifeng is considered the birthplace of Zaju, a major form of Chinese opera that rose to prominence during the Song Dynasty. Performances were held mainly in washa and goulan, the popular entertainment districts of the time. A standardized role system developed, including Dan (female roles), Mo (older male roles), Jing (painted-face roles), and Za (comic and supporting roles)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 114.54, 34.72 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Hangzhou",
+        "title": "Home of Nan Opera",
+        "description": "During the Yuan Dynasty, the creative heart of Zaju shifted southward, making Hangzhou a key hub for performance and innovation. Here, Zaju blended with Nanxi drama from Wenzhou, giving rise to a more lyrical and expressive operatic style that laid the foundation for later Southern Chinese theatrical traditions."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 120.17, 30.22 ]
+        }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Wenzhou",
+        "title": "Cradle of Nan Opera",
+        "description": "Wenzhou, especially the Yongjia area, is the birthplace of Nanxi, a form of drama that emerged during the Southern Song Dynasty. As Northern Zaju spread southward, it encountered and blended with the local Yongjia Zaju (Nanxi). Unlike Zaju’s structure of “four acts and one wedge,” Nanxi broke the mold with long-form narrative storytelling, paving the way for Southern opera traditions."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 121.53, 29.88 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Suzhou",
+        "title": "Literary Roots and the Rise of Kunqu",
+        "description": "During the Yuan Dynasty, playwrights like Guan Hanqing traveled to Jiangnan and helped refine Zaju scripts with more elegant, literary expression. In Suzhou, these refined styles blended with the delicate gestures and storytelling techniques of Suzhou Pingtan, planting the seeds for the later development of Kunqu Opera."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.59, 31.30]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Yangzhou",
+        "title": "Gateway to the Capital",
+        "description": "Yangzhou was an important stop for Huiban troupes on their way to Beijing, helping the rise of Peking Opera. It is also the hometown of Yangju Opera, known for its lively singing and local style. Kunqu Opera was once popular here too, adding to the city’s rich opera culture."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 119.42, 32.37 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Huaian",
+        "title": "Canal Theater and the Birth of Huaihong Opera",
+        "description": "As a key hub along the Grand Canal, Qingjiangpu in Huai'an hosted frequent performances by grass-stage troupes at canal ports. Northern Bangzi troupes, brought south by grain transport officials, merged with the local Huaihai Opera, giving rise to Huaihong Opera, known for its use of Mandarin-style spoken lines (Plain language)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.15, 33.50]
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+"type": "FeatureCollection",
+"name": "city",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 21, "name": "洛阳" }, "geometry": { "type": "Point", "coordinates": [ 112.871761812589369, 34.685964413830654 ] } },
+{ "type": "Feature", "properties": { "id": 2, "name": "开封" }, "geometry": { "type": "Point", "coordinates": [ 114.539281906843939, 34.724745944725832 ] } },
+{ "type": "Feature", "properties": { "id": 3, "name": "宿迁" }, "geometry": { "type": "Point", "coordinates": [ 118.237813544677081, 33.988496476712967 ] } },
+{ "type": "Feature", "properties": { "id": 4, "name": "商丘" }, "geometry": { "type": "Point", "coordinates": [ 115.815474844695714, 34.382063860964273 ] } },
+{ "type": "Feature", "properties": { "id": 5, "name": "淮安" }, "geometry": { "type": "Point", "coordinates": [ 119.028075160385683, 33.594054919690507 ] } },
+{ "type": "Feature", "properties": { "id": 6, "name": "扬州" }, "geometry": { "type": "Point", "coordinates": [ 119.418528606142473, 32.369949127462384 ] } },
+{ "type": "Feature", "properties": { "id": 7, "name": "苏州" }, "geometry": { "type": "Point", "coordinates": [ 120.530626627372811, 31.349094985588987 ] } },
+{ "type": "Feature", "properties": { "id": 8, "name": "杭州" }, "geometry": { "type": "Point", "coordinates": [ 120.167652512913904, 30.218685468979132 ] } },
+{ "type": "Feature", "properties": { "id": 9, "name": "宁波" }, "geometry": { "type": "Point", "coordinates": [ 121.536365241169094, 29.877412036810117 ] } },
+{ "type": "Feature", "properties": { "id": 10, "name": "徐州" }, "geometry": { "type": "Point", "coordinates": [ 117.323438742895604, 34.267429977505344 ] } },
+{ "type": "Feature", "properties": { "id": 11, "name": "济宁" }, "geometry": { "type": "Point", "coordinates": [ 116.54589503814276, 35.398038018873969 ] } },
+{ "type": "Feature", "properties": { "id": 12, "name": "聊城" }, "geometry": { "type": "Point", "coordinates": [ 116.018006009295348, 36.443396123019454 ] } },
+{ "type": "Feature", "properties": { "id": 13, "name": "安阳" }, "geometry": { "type": "Point", "coordinates": [ 114.71079470408084, 36.108398333751339 ] } },
+{ "type": "Feature", "properties": { "id": 14, "name": "衡水" }, "geometry": { "type": "Point", "coordinates": [ 115.877205608909648, 37.753161014301064 ] } },
+{ "type": "Feature", "properties": { "id": 15, "name": "德州" }, "geometry": { "type": "Point", "coordinates": [ 116.277954714943235, 37.464880928698832 ] } },
+{ "type": "Feature", "properties": { "id": 16, "name": "沧州" }, "geometry": { "type": "Point", "coordinates": [ 116.864912078858396, 38.331032946355904 ] } },
+{ "type": "Feature", "properties": { "id": 17, "name": "天津" }, "geometry": { "type": "Point", "coordinates": [ 117.185031532283162, 39.148336540982655 ] } },
+{ "type": "Feature", "properties": { "id": 18, "name": "北京" }, "geometry": { "type": "Point", "coordinates": [ 116.25607391919884, 40.190094938814909 ] } },
+{ "type": "Feature", "properties": { "id": 19, "name": "廊坊" }, "geometry": { "type": "Point", "coordinates": [ 116.775383148798042, 39.564421168213464 ] } },
+{ "type": "Feature", "properties": { "id": 20, "name": "郑州" }, "geometry": { "type": "Point", "coordinates": [ 113.956651553148205, 34.779644167227104 ] } },
+{ "type": "Feature", "properties": { "id": 21, "name": "泰安" }, "geometry": { "type": "Point", "coordinates": [ 117.136063937576338, 36.183623635179643 ] } }
+]
+}

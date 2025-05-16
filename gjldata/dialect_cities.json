@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Beijing",     
+        "title": "Voices from the South",
+        "description": "Southern officials, merchants, and opera troupes traveled north via the Grand Canal, bringing influences from Wu dialects and Jianghuai Mandarin. These linguistic elements subtly shaped the evolution of Beijing speech, especially in opera and urban vernacular."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.41, 39.90]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Linqing",
+        "title": "Secret Speech of the Grain Fleet",
+        "description": "Linqing saw the rise of “Cao Bang slang”, a coded language used by canal workers. Everyday words were repurposed: “lantern” meant a signal, “wagging the tail” referred to bribing tax officers. Even numbers had hidden terms—“one” became liǔ (willow), and “ten” became zú (foot)—to keep accounts confidential during transport."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 115.70, 36.68 ] 
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Xuzhou",
+        "title": "Crossroads of Northern Speech",
+        "description": "At the junction of the Grand Canal and Old Yellow River, Xuzhou blended Central Plains Mandarin, Jianghuai Mandarin, Jin Chinese, and Shandong dialects, forming Xuhuai Mandarin. The Ming Hongwu resettlement brought Jin words like gēcù (“squat”), while Qing garrisons from the north introduced retroflex endings like zher and nar."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 117.34, 34.33 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Hangzhou",
+        "title": "A Southern Port with a Northern Voice",
+        "description": "After the fall of Bianjing (Kaifeng) in the Northern Song, large numbers of officials and scholars fled north to south via the Grand Canal, settling in Hangzhou. They brought Central Plains Mandarin, making Hangzhou a linguistic crossroads—a southern city with strong northern speech influences."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 120.17, 30.22 ]
+        }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Suqian",
+        "title": "A City Divided by Dialect",
+        "description": "The Grand Canal acts as a linguistic boundary in Suqian. North of the canal (Sucheng District) speaks Central Plains Mandarin (Xuzhou variety), while south of the canal (Siyang County) is dominated by Jianghuai Mandarin (Hongchao variety). This split reflects the city's unique dialectal divide shaped by geography."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 118.28, 33.96 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Jiaxin",
+        "title": "Mandarin Island in the Wuyu Area",
+        "description": "During the Ming and Qing dynasties, canal officials stationed in Jiaxing formed Mandarin-speaking communities surrounded by the local Wu dialect. This created a unique “dialect island” phenomenon, where Mandarin persisted in pockets amid a dominant regional speech."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.76, 30.76]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Zhenjiang",
+        "title": "Salt Merchants’ Mixed Speech",
+        "description": "To interact with officials from both north and south, Yangzhou salt merchants developed a mixed dialect known as “Lanqing Mandarin.” It blended elements of Jianghuai Mandarin, Beijing Mandarin, and Wu dialects. Linguistic features included preserved entering tones and northern-style retroflex endings (like -r sounds)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 119.45, 32.20 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Tianjin",
+        "title": "Rise of Dockside Wit",
+        "description": "At the busy Tianjin docks, laborers, merchants, and performers mingled, giving rise to “Wei Zuizi”—a fast-paced, sharp-tongued local dialect known for teasing humor. Its features include slurred tones, linked syllables, and slang rooted in canal dispute mediation. The punchline rhythm (doubao fu) of Tianjin crosstalk (xiangsheng) echoes the chants of dockside vendors along the Grand Canal."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 117.2, 39.13 ]
+      }
+    }
+  ]
+}

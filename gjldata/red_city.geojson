@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "name": "zaju_city",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Suzhou", 
+        "Latitude": 31.35, 
+        "Longitude": 120.53, 
+        "description": "In 1791, Suzhou publisher Cheng Weiyuan printed the first known edition of Dream of the Red Chamber (the Cheng A version), distributing it nationwide via the Grand Canal. Local performers adapted the novel into Tanci ballads, which were sung in canal teahouses, allowing the story to reach broader audiences through oral performance.",
+        "iconImage": "gjlimages/city_icons/literature_suzhou.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 120.53, 31.35]
+      } 
+    },    
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Nanjing", 
+        "Latitude": 32.06, 
+        "Longitude": 118.78, 
+        "description": "Early handwritten versions of Dream of the Red Chamber, like the Jiaxu manuscript, were likely privately circulated by officials and carried north via grain ships. The route of Lin Daiyu's journey from Yangzhou to Beijing reflects the emotional landscape of canal migrants, turning personal travel into literary metaphor.",
+        "iconImage": "gjlimages/city_icons/literature_nanjing.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 118.78, 32.06 ]
+      } 
+    },
+    { 
+      "type": "Feature", 
+      "properties": { 
+        "City": "Beijing", 
+        "Latitude": 39.9, 
+        "Longitude": 116.41, 
+        "description": "The Qianlong Emperor reportedly read Dream of the Red Chamber during a canal journey, calling it \"the story of the Mingzhu family.\" Annotated Zhi editions circulated among nobles, including in Heshen's mansion, and spread via canal official networks. Liulichang book market became a hub for rare copies, with merchants reselling \"secret editions\" at high prices.",
+        "iconImage": "gjlimages/city_icons/literature_beijing2.png"
+      }, 
+      "geometry": { 
+        "type": "Point", 
+        "coordinates": [ 116.41, 39.9 ]
+      } 
+    }
+  ]
+}

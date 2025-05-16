@@ -1,0 +1,52 @@
+id,name,dynasty,year,category,category_div,startLocation,endLocation,impact,direction
+1,Formation of Jiangnan Poetry School,Southern Song,1140,Culture,Literature,Hangzhou,Beijing,85,s
+2,Rise of Yuan Qu,Yuan,1280,Culture,Literature,Dadu (Beijing),Hangzhou,90,n
+3,Tongcheng Prose School,Ming-Qing,1620,Culture,Literature,"Tongcheng, Anhui",Yangzhou,75,w
+4,Dissemination of Dream of the Red Chamber,Qing,1791,Culture,Literature,Beijing,Suzhou,95,n
+5,Yangzhou Talents' Literary Circle,Qing,1760,Culture,Literature,Yangzhou,Beijing,70,s
+6,Formation of Kunqu Opera,Ming,1550,Culture,Opera,Kunshan,Yangzhou,90,s
+7,Northward Spread of Kunqu Opera,MIng,1590,Culture,Opera,Suzhou,Beijing,85,s
+8,Formation of Beijing Opera,Qing,1790,Culture,Opera,Beijing,Tianjin,95,n
+9,Dissemination of Shadow Puppetry,Qing,1650,Culture,Opera,Jinan,Yangzhou,65,n
+10,Development of Yangzhou Opera,Qing,1800,Culture,Opera,Yangzhou,Zhenjiang,60,n
+11,Southward Spread of Mandarin,Ming,1420,Culture,Dialect,Beijing,Xuzhou,80,n
+12,Differentiation of Wu Dialects,Ming,1500,Culture,Dialect,Suzhou,Hangzhou,65,n
+13,Formation of Tongzhou Dialect,Qing,1700,Culture,Dialect,Beijing,Wenzhou,55,n
+14,Southward Spread of Official-style Cuisine,Yuan,1300,Culture,Diet,Dadu (Beijing),Hangzhou,70,n
+15,Northward Expansion of Huaiyang Cuisine,Qing,1720,Culture,Diet,Yangzhou,Beijing,90,s
+16,Formation of Canal Boatmen Cuisine,Qing,1650,Culture,Diet,Wuxi,Beijing,65,s
+17,Southward Spread of Northern Flour-based Food,Ming,1550,Culture,Diet,Jinan,Yangzhou,75,n
+18,Northward Spread of Tea Culture,Northern Song,980,Culture,Diet,Hangzhou,Beijing,85,s
+19,Grain,Northern Song,1022,Commerce,Grain,Southern China,Kaifeng,85,s
+20,Grain,Ming-Qing,1421,Commerce,Grain,Suzhou,Beijing,80,s
+21,Grain,Ming-Qing,1421,Commerce,Grain,Hangzhou,Beijing,80,s
+22,Grain,Ming-Qing,1573,Commerce,Grain,Wuchang,Suzhou,75,w
+23,Grain,Qing,1685,Commerce,Grain,Jining,Hangzhou,70,n
+24,Grain,Ming,1415,Commerce,Grain,Kaifeng,Wuxi,65,w
+25,Salt,Northern Song,1040,Commerce,Salt,Yuncheng,Beijing,90,w
+26,Salt,Northern Song,1070,Commerce,Salt,Huaian,Kaifeng,85,e
+27,Salt,Ming-Qing,1600,Commerce,Salt,Huaian,Hankou,80,e
+28,Salt,Ming-Qing,1725,Commerce,Salt,Tianjin,Beijing,75,s
+29,Silk,Ming-Qing,1436,Commerce,Silk,Suzhou,Beijing,90,s
+30,Silk,Ming-Qing,1436,Commerce,Silk,Hangzhou,Beijing,85,s
+31,Cotton Cloth,Ming-Qing,1580,Commerce,Cotton Cloth,Shanghai,LInqing,80,s
+32,Tea,Qing,1750,Commerce,Tea,Wuyishan,Zhangjiakou,85,s
+33,Porcelain,Ming-Qing,1550,Commerce,Porcelain,Jingdezhen,Ningbo,90,w
+34,Earthen Dam Water Level ControlKey technologies,Sui-Tang,615,Technology,Irrigation,Jiangnan Canal,Ji Canal,75,s
+35,Multi-level Ship Lock System,Yuan,1415,Technology,Irrigation,Nanwang Junction,Southern Grand Canal,80,n
+36,Narrowing Channels to Flush Sediment,Ming,1578,Technology,Irrigation,Huaian,Lower Yellow River,85,e
+37,Flat-Bottomed Shallow-Hold Boat,Song,1020,Technology,Shipbuilding,Kaifeng,Suzhou,70,n
+38,Deep-hull Pointed-bottom Boats & Mortise-tenon Joinery,Ming,1420,Technology,Shipbuilding,Hangzhou,Huaian,75,s
+39,Woodblock Printing,Ming,1403,Technology,Printing,Hangzhou,Beijing,85,s
+40,Color-printed Woodblock Technique,Ming-Qing,1630,Technology,Printing,Suzhou,Liaocheng,80,s
+41,Water-powered Spinning Wheel,Yuan,1295,Technology,Agriculture,Dongping,Shanghai,75,n
+42,River Desilting Tool: Dredging Rake,Song-Yuan,1070,Technology,Hydraulic Engineering,Kaifeng,LInqing,70,w
+43,White Porcelain Glaze & Firing Technique,Northern Song,1100,Technology,Handicraft,Quyang,Longquan,85,n
+44,Cobalt Blue Pigment for Blue-and-white Porcelain,Yuan,1290,Technology,Handicraft,Tianjin,Jingdezhen,90,n
+45,Porcelain-making Technique,Yuan-Ming-Qing,1350,Technology,Handicraft,Jingdezhen,Beijing,85,s
+46,Huang Daopo's Cotton Spinning Technique,Yuan,1296,Technology,Handicraft,Shanghai,Anyang,80,e
+47,Silk Weaving Technique,Yuan,1280,Technology,Handicraft,Hangzhou,Ningbo,75,w
+48,Huzhou Calligraphy Brush-making,Ming,1425,Technology,Handicraft,Huzhou,Liaocheng,78,s
+49,Suzhou Embroidery Technique,Ming-Qing,1550,Technology,Handicraft,Suzhou,Hangzhou,72,n
+50,Linqing Woodblock New Year Print Technique,Ming-Qing,1600,Technology,Handicraft,LInqing,Tianjin,65,w
+51,Purple Clay Teapot: Yixing Zisha Teapot,Ming-Qing,1580,Technology,Handicraft,Yixing,Tianjin,82,s
